@@ -24,8 +24,7 @@
         button:hover { background: #b8962d; }
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: #0a0a0a; }
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
-        .social-icons a img { width: 50px; height: 50px; object-fit: contain; transition: transform 0.3s; }
-        .social-icons a img:hover { transform: scale(1.15); }
+        .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
     </style>
 </head>
 <body>
@@ -72,10 +71,10 @@
 
 <section>
     <h2 class="golden" data-key="contact">Contacto e Inversionistas</h2>
-    <form action="mailto:ajpanama22@gmail.com" method="post" enctype="text/plain">
-        <input type="text" placeholder="Nombre" data-placeholder="name" id="p-name">
-        <input type="email" placeholder="Correo" data-placeholder="email" id="p-email">
-        <textarea placeholder="Mensaje" rows="4" data-placeholder="message" id="p-msg"></textarea>
+    <form action="https://formspree.io/f/mgojnnep" method="POST">
+        <input type="text" name="name" placeholder="Nombre" id="p-name" required>
+        <input type="email" name="email" placeholder="Correo" id="p-email" required>
+        <textarea name="message" placeholder="Mensaje" rows="4" id="p-msg" required></textarea>
         <button type="submit" data-key="send">Enviar Solicitud</button>
     </form>
 </section>
