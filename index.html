@@ -5,32 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trulink Fiber LLC | Ingeniería en Infraestructura Digital</title>
     <style>
-        /* Reseteo para evitar desalineación */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #000; color: #fff; font-family: sans-serif; line-height: 1.6; }
-        
-        /* Contenedor principal */
         .container { max-width: 900px; margin: auto; padding: 20px; }
         
-        /* Títulos centrados */
+        header { padding: 20px 50px; border-bottom: 1px solid #C5A059; display: flex; justify-content: space-between; align-items: center; }
+        .logo { max-width: 120px; }
+        
         h1, h2 { color: #C5A059; text-align: center; margin: 30px 0; }
-        .subtitle { text-align: center; margin-bottom: 20px; }
+        .subtitle { text-align: center; margin-bottom: 20px; font-size: 1.2rem; }
         
-        /* Imagen grande de fábrica */
         .main-img { width: 100%; border-radius: 8px; border: 2px solid #C5A059; display: block; margin: 20px auto; }
+        .descripcion { text-align: justify; margin-bottom: 40px; color: #fff; }
         
-        /* Galería corregida */
         .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
         .gallery-item { text-align: center; width: 150px; }
         .gallery-item img { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 2px solid #C5A059; display: block; }
-        .gallery-item p { color: #C5A059; margin-top: 10px; font-weight: bold; }
+        .gallery-item p { color: #C5A059; margin-top: 10px; font-weight: bold; font-size: 0.9rem; }
+        
+        /* Estilos del Formulario */
+        .contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 40px auto; }
+        .contact-form input, .contact-form textarea { padding: 12px; border-radius: 4px; border: 1px solid #C5A059; background: #111; color: #fff; }
+        .contact-form button { padding: 12px; background-color: #C5A059; color: #000; font-weight: bold; border: none; cursor: pointer; border-radius: 4px; }
+        
+        .btn-lang { background: none; border: 1px solid #C5A059; color: #fff; cursor: pointer; padding: 5px 10px; }
+        .btn-lang:hover { background-color: #C5A059; color: #000; }
     </style>
 </head>
 <body>
 
+<header>
+    <img src="1766012249626-removebg-preview.png" alt="Trulink Logo" class="logo">
+    <nav><button class="btn-lang" onclick="setLang('es')">ES</button> | <button class="btn-lang" onclick="setLang('en')">EN</button></nav>
+</header>
+
 <div class="container">
-    <h1>Trulink: Ingeniería en Infraestructura Digital</h1>
-    <p class="subtitle">Manufactura industrial de alta precisión desde el Hub logístico de las Américas.</p>
+    <h1 class="es">Trulink: Ingeniería en Infraestructura Digital</h1>
+    <h1 class="en" style="display:none;">Trulink: Digital Infrastructure Engineering</h1>
+    <p class="es subtitle">Manufactura industrial de alta precisión desde el Hub logístico de las Américas.</p>
+    <p class="en subtitle" style="display:none;">High-precision industrial manufacturing from the logistics Hub of the Americas.</p>
+
+    <img src="images/panamakey.jpg" alt="Panama Digital Key" class="main-img">
+
+    <div class="es">
+        <h2>Trulink: La Vanguardia de la Infraestructura Digital</h2>
+        <p class="descripcion">En <strong>Trulink</strong>, no solo fabricamos componentes; construimos el tejido conectivo que permite el flujo de información en la era digital global. Operando desde Panamá, proyectamos soluciones de infraestructura hacia todo el mundo. Adoptamos un enfoque de <strong>fabricación directa (OBM)</strong>, ofreciendo tecnología de punta —especializada en fibra óptica y sistemas de anclaje de alto rendimiento— con una eficiencia de costos que redefine el mercado. Nuestra marca es sinónimo de lealtad, honestidad y un trato empresarial "humanizado".</p>
+    </div>
+    <div class="en" style="display:none;">
+        <h2>Trulink: The Vanguard of Digital Infrastructure</h2>
+        <p class="descripcion">At <strong>Trulink</strong>, we don't just manufacture components; we build the connective tissue that enables the flow of information in the global digital age. Operating from Panama, we project infrastructure solutions worldwide. We adopt a <strong>direct manufacturing (OBM)</strong> approach, offering cutting-edge technology—specialized in fiber optics and high-performance anchoring systems—with cost efficiency that redefines the market. Our brand is synonymous with loyalty, honesty, and a "humanized" business approach.</p>
+    </div>
 
     <h2>Manufactura de Clase Mundial</h2>
     <img src="images/fabrica.jpg" alt="Trulink Fábrica" class="main-img">
@@ -42,7 +66,22 @@
         <div class="gallery-item"><img src="images/adss.jpg" alt="ADSS"><p>ADSS</p></div>
         <div class="gallery-item"><img src="images/asu.jpg" alt="ASU"><p>ASU</p></div>
     </div>
+
+    <!-- Formulario -->
+    <h2 class="es">Contacto e Inversionistas</h2>
+    <h2 class="en" style="display:none;">Contact & Investors</h2>
+    <form action="https://formspree.io/f/ajpanama22@gmail.com" method="POST" class="contact-form">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+    </form>
 </div>
 
+<script>
+    function setLang(lang) {
+        document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
+        document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
+    }
+</script>
 </body>
 </html>
