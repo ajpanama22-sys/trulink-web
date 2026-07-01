@@ -9,25 +9,32 @@
         body { background-color: #000; color: #fff; font-family: sans-serif; line-height: 1.6; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
         
+        /* Header */
         header { padding: 20px 50px; border-bottom: 1px solid #C5A059; display: flex; justify-content: space-between; align-items: center; }
         .logo { max-width: 120px; }
         
+        /* Títulos */
         h1, h2 { color: #C5A059; text-align: center; margin: 30px 0; }
         .subtitle { text-align: center; margin-bottom: 20px; font-size: 1.2rem; }
         
+        /* Imágenes */
         .main-img { width: 100%; border-radius: 8px; border: 2px solid #C5A059; display: block; margin: 20px auto; }
+        
+        /* Descripción */
         .descripcion { text-align: justify; margin-bottom: 40px; color: #fff; }
         
+        /* Galería */
         .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
         .gallery-item { text-align: center; width: 150px; }
         .gallery-item img { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 2px solid #C5A059; display: block; }
         .gallery-item p { color: #C5A059; margin-top: 10px; font-weight: bold; font-size: 0.9rem; }
         
-        /* Estilos del Formulario */
+        /* Formulario */
         .contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 40px auto; }
         .contact-form input, .contact-form textarea { padding: 12px; border-radius: 4px; border: 1px solid #C5A059; background: #111; color: #fff; }
         .contact-form button { padding: 12px; background-color: #C5A059; color: #000; font-weight: bold; border: none; cursor: pointer; border-radius: 4px; }
         
+        /* Botones */
         .btn-lang { background: none; border: 1px solid #C5A059; color: #fff; cursor: pointer; padding: 5px 10px; }
         .btn-lang:hover { background-color: #C5A059; color: #000; }
     </style>
@@ -67,10 +74,9 @@
         <div class="gallery-item"><img src="images/asu.jpg" alt="ASU"><p>ASU</p></div>
     </div>
 
-    <!-- Formulario -->
     <h2 class="es">Contacto e Inversionistas</h2>
     <h2 class="en" style="display:none;">Contact & Investors</h2>
-    <form action="https://formspree.io/f/TU_EMAIL_AQUI" method="POST" class="contact-form">
+    <form action="https://formspree.io/f/mgojnnep" method="POST" class="contact-form">
         <input type="email" name="email" placeholder="Tu correo electrónico" required>
         <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
         <button type="submit">Enviar mensaje</button>
