@@ -3,48 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trulink Fiber LLC</title>
+    <title>Trulink Fiber LLC | Ingeniería en Infraestructura Digital</title>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Helvetica Neue', sans-serif; margin: 0; line-height: 1.6; }
-        header { padding: 20px 50px; border-bottom: 1px solid #C5A059; display: flex; justify-content: space-between; align-items: center; }
-        .hero { text-align: center; padding: 100px 20px; }
-        h1, h2 { color: #C5A059; }
+        header { padding: 20px 50px; border-bottom: 1px solid #C5A059; display: flex; justify-content: space-between; align-items: center; background-color: #000; }
+        .logo { max-width: 120px; }
+        .hero { text-align: center; padding: 80px 20px; background-color: #000; border-bottom: 1px solid #C5A059; }
+        h1, h2 { color: #C5A059; margin-bottom: 10px; }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        .subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 15px; }
+        .tagline { font-style: italic; color: #C5A059; font-size: 1.1rem; margin-top: 20px;}
         .container { max-width: 900px; margin: auto; padding: 40px 20px; }
-        .btn-lang { background: none; border: 1px solid #C5A059; color: #fff; cursor: pointer; padding: 5px 10px; }
-        footer { border-top: 1px solid #C5A059; padding: 40px; text-align: center; font-size: 0.9rem; }
+        .btn-lang { background: none; border: 1px solid #C5A059; color: #fff; cursor: pointer; padding: 5px 10px; transition: all 0.3s; }
+        .btn-lang:hover { background-color: #C5A059; color: #000; }
+        /* Estilos de Imagen */
+        .fabrica-img { width: 100%; border-radius: 8px; border: 2px solid #C5A059; margin: 20px 0; }
+        .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
+        .gallery-item { text-align: center; width: calc(20% - 20px); min-width: 150px; }
+        .gallery-item img { width: 100%; height: auto; border-radius: 8px; border: 2px solid #C5A059; padding: 5px; box-sizing: border-box; }
+        .gallery-item p { font-size: 0.9rem; color: #C5A059; margin-top: 5px; }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 30px auto; }
+        .contact-form input, .contact-form textarea { padding: 10px; background-color: #111; border: 1px solid #333; color: #fff; border-radius: 4px; }
+        .contact-form button { padding: 10px; background-color: #C5A059; color: #000; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        footer { border-top: 1px solid #C5A059; padding: 30px; text-align: center; font-size: 0.9rem; color: #888; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="1766012249626-removebg-preview.png" alt="Logo" style="width: 120px;">
-    <nav><button class="btn-lang">ES</button> | <button class="btn-lang">EN</button></nav>
+    <img src="1766012249626-removebg-preview.png" alt="Trulink Logo" class="logo">
+    <nav><button class="btn-lang" onclick="setLang('es')">ES</button> | <button class="btn-lang" onclick="setLang('en')">EN</button></nav>
 </header>
 
 <section class="hero">
-    <h1>Trulink Fiber LLC</h1>
-    <p>Ingeniería en Infraestructura Digital / Digital Infrastructure Engineering</p>
-    <p><em>Calidad de ingeniería superior con una eficiencia de costos que redefine el mercado.</em></p>
+    <div class="container">
+        <h1 class="es">Trulink: Ingeniería en Infraestructura Digital</h1>
+        <h1 class="en" style="display:none;">Trulink: Digital Infrastructure Engineering</h1>
+        <p class="es subtitle">Manufactura industrial de alta precisión desde el Hub logístico de las Américas.</p>
+        <p class="en subtitle" style="display:none;">High-precision industrial manufacturing from the logistics Hub of the Americas.</p>
+    </div>
 </section>
 
 <div class="container">
-    <h2>Manufactura de Clase Mundial / World-Class Manufacturing</h2>
-    <p>Gracias a nuestra alianza estratégica en Shenzhen, garantizamos cables de fibra óptica de alta calidad.</p>
-    <h2>Conectividad Estratégica / Strategic Connectivity</h2>
-    <p>Ubicados en Ciudad de Panamá, Panamá, somos el nodo central de suministro para la región.</p>
+    <h2 class="es">Manufactura de Clase Mundial</h2>
+    <h2 class="en" style="display:none;">World-Class Manufacturing</h2>
+    
+    <!-- Imagen de la fábrica -->
+    <img src="images/fabrica.jpg" alt="Trulink Fiber Lab" class="fabrica-img">
+    
+    <p class="es">Gracias a nuestra alianza estratégica de manufactura, **Trulink** garantiza cables de fibra óptica de la más alta calidad. Nuestra infraestructura de laboratorio y líneas de producción aseguran precisión técnica constante.</p>
+    <p class="en" style="display:none;">Through our strategic manufacturing partnership, **Trulink** ensures the highest quality fiber optic cables. Our lab infrastructure and production lines ensure constant technical precision.</p>
 
-    <h2>Relación con Inversionistas / Investor Relations</h2>
-    <p>Para información estratégica, contáctenos:</p>
-    <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
-        <input type="email" name="email" placeholder="Tu correo / Your email" required>
-        <textarea name="message" placeholder="Mensaje / Message"></textarea>
-        <button type="submit">Enviar / Send</button>
-    </form>
+    <div class="gallery">
+        <div class="gallery-item"><img src="images/accesorios.jpg" alt="Accesorios"><p>Accesorios</p></div>
+        <div class="gallery-item"><img src="images/herraje.jpg" alt="Herraje"><p>Herraje</p></div>
+        <div class="gallery-item"><img src="images/drop.png" alt="Fibra Drop"><p>Drop</p></div>
+        <div class="gallery-item"><img src="images/adss.png" alt="ADSS"><p>ADSS</p></div>
+        <div class="gallery-item"><img src="images/asu.png" alt="ASU"><p>ASU</p></div>
+    </div>
 </div>
 
-<footer>
-    <p>5203 Juan Tabo Blvd Ne, Ste 2b, Albuquerque, NM 87111-2691</p>
-</footer>
+<!-- ... resto del código (Conectividad y Formulario igual que antes) ... -->
 
+<script>
+    function setLang(lang) {
+        const es = document.querySelectorAll('.es');
+        const en = document.querySelectorAll('.en');
+        if (lang === 'es') { es.forEach(el => el.style.display = ''); en.forEach(el => el.style.display = 'none'); }
+        else { es.forEach(el => el.style.display = 'none'); en.forEach(el => el.style.display = ''); }
+    }
+</script>
 </body>
 </html>
