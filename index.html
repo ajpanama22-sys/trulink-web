@@ -1,153 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos generales */
-        body { 
-            background-image: url('images/fondo.jpg');
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #fff; 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            line-height: 1.8; 
-            overflow-x: hidden; 
-        }
-        
-        /* Asegurar que las secciones tengan un fondo oscuro para que el texto sea legible */
-        section { 
-            padding: 80px 10%; 
-            text-align: center; 
-            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
-            margin: 20px 0;
-        }
-
-        .golden { color: #d4af37; }
-        .fade-in { animation: fadeIn 1.2s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 10%; border-bottom: 1px solid #333; background: rgba(0,0,0,0.8); }
-        .logo { height: 80px; width: auto; }
-        .header-address { font-size: 0.9rem; color: #888; text-align: center; max-width: 400px; }
-        #lang-selector { background: #000; color: #d4af37; border: 1px solid #d4af37; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
-        
-        .content-img { width: 100%; max-width: 800px; border: 1px solid #d4af37; margin: 40px 0; border-radius: 8px; }
-        .reseña-container { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #ccc; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
-        .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
-        .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; transition: 0.4s; }
-        .solucion-item img:hover { transform: scale(1.05); border-color: #d4af37; }
-        
-        form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 20px; }
-        input, textarea { padding: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 6px; transition: 0.3s; }
-        input:focus, textarea:focus { border-color: #d4af37; outline: none; }
-        button { padding: 15px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 6px; color: #000; transition: 0.3s; }
-        button:hover { background: #b8962d; }
-        
-        footer { padding: 40px; border-top: 1px solid #333; text-align: center; background-color: #050505; }
-        .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
-        .social-icons a img { width: 40px; height: 40px; object-fit: contain; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; overflow-x: hidden; }
+        .golden { color: #d4af37; }
+        .fade-in { animation: fadeIn 1.2s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 10%; border-bottom: 1px solid #333; }
+        .logo { height: 80px; width: auto; }
+        .header-address { font-size: 0.9rem; color: #888; text-align: center; max-width: 400px; }
+        #lang-selector { background: #000; color: #d4af37; border: 1px solid #d4af37; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
+        section { padding: 80px 10%; text-align: center; }
+        .content-img { width: 100%; max-width: 800px; border: 1px solid #d4af37; margin: 40px 0; border-radius: 8px; }
+        .reseña-container { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #ccc; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
+        .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
+        .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; transition: 0.4s; }
+        .solucion-item img:hover { transform: scale(1.05); border-color: #d4af37; }
+        form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 20px; }
+        input, textarea { padding: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 6px; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: #d4af37; outline: none; }
+        button { padding: 15px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 6px; color: #000; transition: 0.3s; }
+        button:hover { background: #b8962d; }
+        #status-msg { margin-top: 20px; font-weight: bold; color: #d4af37; }
+        footer { padding: 40px; border-top: 1px solid #333; text-align: center; background-color: #050505; }
+        .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .social-icons a img { width: 40px; height: 40px; object-fit: contain; }
+    </style>
 </head>
 <body>
 
 <header class="fade-in">
-    <img src="1766012249626-removebg-preview.png" class="logo" alt="Trulink Logo">
-    <div class="header-address">
-        <strong>TRULINK FIBER LLC</strong><br>
-        5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US
-    </div>
-    <select id="lang-selector" onchange="changeLanguage()">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="zh">中文</option>
-    </select>
+    <img src="1766012249626-removebg-preview.png" class="logo" alt="Trulink Logo">
+    <div class="header-address">
+        <strong>TRULINK FIBER LLC</strong><br>
+        5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US
+    </div>
+    <select id="lang-selector" onchange="changeLanguage()">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="zh">中文</option>
+    </select>
 </header>
 
 <section class="fade-in">
-    <h1 class="golden" data-key="title">Trulink: Ingeniería en Infraestructura Digital</h1>
-    <p data-key="subtitle">Manufactura industrial de alta precisión desde el Hub logístico de las Américas.</p>
-    <img src="images/panamakey.jpg" class="content-img" alt="Panama Key">
+    <h1 class="golden" data-key="title">Trulink: Ingeniería en Infraestructura Digital</h1>
+    <p data-key="subtitle">Manufactura industrial de alta precisión desde el Hub logístico de las Américas.</p>
+    <img src="images/panamakey.jpg" class="content-img" alt="Panama Key">
 </section>
 
 <section class="fade-in">
-    <h2 class="golden" data-key="who_we_are">¿Quién es Trulink?</h2>
-    <div class="reseña-container">
-        <p data-key="desc1">En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.</p>
-        <p data-key="desc2">Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.</p>
-    </div>
+    <h2 class="golden" data-key="who_we_are">¿Quién es Trulink?</h2>
+    <div class="reseña-container">
+        <p data-key="desc1">En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.</p>
+        <p data-key="desc2">Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.</p>
+    </div>
 </section>
 
 <section class="fade-in">
-    <h2 class="golden" data-key="solutions">Nuestras Soluciones</h2>
-    <div class="grid">
-        <div class="solucion-item"><h3>ASU</h3><img src="images/asu.jpg" alt="ASU"></div>
-        <div class="solucion-item"><h3>ADSS</h3><img src="images/adss.jpg" alt="ADSS"></div>
-        <div class="solucion-item"><h3>DROP</h3><img src="images/drop.jpg" alt="Drop"></div>
-        <div class="solucion-item"><h3>HERRAJES</h3><img src="images/herraje.jpg" alt="Herrajes"></div>
-        <div class="solucion-item"><h3>ACCESORIOS</h3><img src="images/accesorios.jpg" alt="Accesorios"></div>
-    </div>
+    <h2 class="golden" data-key="solutions">Nuestras Soluciones</h2>
+    <div class="grid">
+        <div class="solucion-item"><h3>ASU</h3><img src="images/asu.jpg" alt="ASU"></div>
+        <div class="solucion-item"><h3>ADSS</h3><img src="images/adss.jpg" alt="ADSS"></div>
+        <div class="solucion-item"><h3>DROP</h3><img src="images/drop.jpg" alt="Drop"></div>
+        <div class="solucion-item"><h3>HERRAJES</h3><img src="images/herraje.jpg" alt="Herrajes"></div>
+        <div class="solucion-item"><h3>ACCESORIOS</h3><img src="images/accesorios.jpg" alt="Accesorios"></div>
+    </div>
 </section>
 
 <section class="fade-in">
-    <h2 class="golden" data-key="contact">Contacto e Inversionistas</h2>
-    <form id="contactForm" action="https://formspree.io/f/mgojnnep" method="POST">
-        <input type="text" name="name" placeholder="Nombre" id="p-name" required>
-        <input type="email" name="email" placeholder="Correo" id="p-email" required>
-        <textarea name="message" placeholder="Mensaje" rows="4" id="p-msg" required></textarea>
-        <button type="submit" data-key="send">Enviar Solicitud</button>
-    </form>
-    <p id="status-msg"></p>
+    <h2 class="golden" data-key="contact">Contacto e Inversionistas</h2>
+    <form id="contactForm" action="https://formspree.io/f/mgojnnep" method="POST">
+        <input type="text" name="name" placeholder="Nombre" id="p-name" required>
+        <input type="email" name="email" placeholder="Correo" id="p-email" required>
+        <textarea name="message" placeholder="Mensaje" rows="4" id="p-msg" required></textarea>
+        <button type="submit" data-key="send">Enviar Solicitud</button>
+    </form>
+    <p id="status-msg"></p>
 </section>
 
 <footer>
-    <div class="social-icons">
-        <a href="https://www.linkedin.com/company/trulink-fiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
-        <a href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
-    </div>
-    <p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/company/trulink-fiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-    const translations = {
-        es: { title: "Trulink: Ingeniería en Infraestructura Digital", subtitle: "Manufactura industrial de alta precisión desde el Hub logístico de las Américas.", who_we_are: "¿Quién es Trulink?", desc1: "En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.", desc2: "Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.", solutions: "Nuestras Soluciones", contact: "Contacto e Inversionistas", name: "Nombre", email: "Correo", message: "Mensaje", send: "Enviar Solicitud" },
-        en: { title: "Trulink: Digital Infrastructure Engineering", subtitle: "High-precision industrial manufacturing from the logistics hub of the Americas.", who_we_are: "Who is Trulink?", desc1: "At Trulink Fiber LLC, we specialize in the development and manufacturing of high-performance fiber optic infrastructure. Our mission is to bridge digital distances through connectivity solutions that combine precision engineering, cutting-edge materials, and unrivaled logistics capabilities from our operations center in Panama.", desc2: "With years of experience in the sector, we have positioned ourselves as a strategic partner for service providers, integrators, and large telecommunications projects. Every product under our brand guarantees technical compliance, extreme durability, and the efficiency required to support the current data demand on the American continent.", solutions: "Our Solutions", contact: "Contact and Investors", name: "Name", email: "Email", message: "Message", send: "Send Request" }
-    };
+    const translations = {
+        es: { title: "Trulink: Ingeniería en Infraestructura Digital", subtitle: "Manufactura industrial de alta precisión desde el Hub logístico de las Américas.", who_we_are: "¿Quién es Trulink?", desc1: "En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.", desc2: "Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.", solutions: "Nuestras Soluciones", contact: "Contacto e Inversionistas", name: "Nombre", email: "Correo", message: "Mensaje", send: "Enviar Solicitud" },
+        en: { title: "Trulink: Digital Infrastructure Engineering", subtitle: "High-precision industrial manufacturing from the logistics hub of the Americas.", who_we_are: "Who is Trulink?", desc1: "At Trulink Fiber LLC, we specialize in the development and manufacturing of high-performance fiber optic infrastructure. Our mission is to bridge digital distances through connectivity solutions that combine precision engineering, cutting-edge materials, and unrivaled logistics capabilities from our operations center in Panama.", desc2: "With years of experience in the sector, we have positioned ourselves as a strategic partner for service providers, integrators, and large telecommunications projects. Every product under our brand guarantees technical compliance, extreme durability, and the efficiency required to support the current data demand on the American continent.", solutions: "Our Solutions", contact: "Contact and Investors", name: "Name", email: "Email", message: "Message", send: "Send Request" },
+        ar: { title: "ترولينك: هندسة البنية التحتية الرقمية", subtitle: "تصنيع صناعي عالي الدقة من المركز اللوجستي للأمريكتين.", who_we_are: "من هي ترولينك؟", desc1: "في شركة ترولينك للألياف الضوئية، نحن متخصصون في تطوير وتصنيع البنية التحتية للألياف الضوئية عالية الأداء. مهمتنا هي تقصير المسافات الرقمية من خلال حلول الاتصال التي تجمع بين الهندسة الدقيقة والمواد المتطورة والقدرات اللوجستية التي لا مثيل لها من مركز عملياتنا في بنما.", desc2: "بفضل سنوات خبرتنا في هذا القطاع، وضعنا أنفسنا كشريك استراتيجي لمقدمي الخدمات والمكاملين ومشاريع الاتصالات الكبيرة. يضمن كل منتج تحت علامتنا التجارية الامتثال الفني والمتانة القصوى والكفاءة اللازمة لدعم الطلب الحالي على البيانات في القارة الأمريكية.", solutions: "حلولنا", contact: "للتواصل والمستثمرين", name: "الاسم", email: "البريد الإلكتروني", message: "الرسالة", send: "إرسال الطلب" },
+        zh: { title: "Trulink: 数字基础设施工程", subtitle: "来自美洲物流中心的高精度工业制造。", who_we_are: "Trulink 是谁?", desc1: "在 Trulink Fiber LLC，我们专注于高性能光纤基础设施的开发和制造。我们的使命是通过连接解决方案来缩短数字距离，这些解决方案结合了精密工程、尖端材料以及我们位于巴拿马的运营中心无可比拟的物流能力。", desc2: "凭借在该领域的多年经验，我们已成为服务提供商、集成商和大型电信项目的战略合作伙伴。我们品牌下的每项产品都保证了技术合规性、极高的耐用性以及支持美洲大陆当前数据需求所需的效率。", solutions: "我们的解决方案", contact: "联系与投资者", name: "姓名", email: "电子邮件", message: "信息", send: "发送请求" }
+    };
 
-    function changeLanguage() {
-        const lang = document.getElementById('lang-selector').value;
-        if(!translations[lang]) return;
-        document.querySelectorAll('[data-key]').forEach(el => el.textContent = translations[lang][el.getAttribute('data-key')]);
-        document.getElementById('p-name').placeholder = translations[lang].name;
-        document.getElementById('p-email').placeholder = translations[lang].email;
-        document.getElementById('p-msg').placeholder = translations[lang].message;
-    }
+    function changeLanguage() {
+        const lang = document.getElementById('lang-selector').value;
+        document.querySelectorAll('[data-key]').forEach(el => el.textContent = translations[lang][el.getAttribute('data-key')]);
+        document.getElementById('p-name').placeholder = translations[lang].name;
+        document.getElementById('p-email').placeholder = translations[lang].email;
+        document.getElementById('p-msg').placeholder = translations[lang].message;
+    }
 
-    const form = document.getElementById("contactForm");
-    async function handleSubmit(event) {
-        event.preventDefault();
-        const status = document.getElementById("status-msg");
-        const response = await fetch(event.target.action, {
-            method: form.method,
-            body: new FormData(event.target),
-            headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) {
-            status.textContent = "¡Mensaje enviado con éxito!";
-            form.reset();
-        } else {
-            status.textContent = "Error al enviar, intente nuevamente.";
-        }
-    }
-    form.addEventListener("submit", handleSubmit);
+    const form = document.getElementById("contactForm");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const status = document.getElementById("status-msg");
+        const response = await fetch(event.target.action, {
+            method: form.method,
+            body: new FormData(event.target),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+            status.textContent = "¡Mensaje enviado con éxito!";
+            form.reset();
+        } else {
+            status.textContent = "Error al enviar, intente nuevamente.";
+        }
+    }
+    form.addEventListener("submit", handleSubmit);
 </script>
 
 </body>
