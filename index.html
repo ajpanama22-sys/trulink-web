@@ -2,122 +2,70 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trulink Footer</title>
     <style>
-        /* Estilos Generales para el Footer */
-        .trulink-footer {
-            background-color: #f8f9fa;
-            padding: 50px 20px;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            border-top: 2px solid #0056b3;
-        }
-
-        /* Contenedor del Formulario */
-        .footer-form {
-            margin-bottom: 40px;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- SECCIÓN DE REDES SOCIALES --- */
-        .footer-social-container {
-            border-top: 1px solid #e0e0e0;
-            padding-top: 30px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .social-icon-link {
-            display: inline-block;
-            transition: transform 0.3s ease-in-out;
-            line-height: 0;
-        }
-
-        .social-icon-link:hover {
-            transform: scale(1.15);
-        }
-
-        .social-icon-img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-        /* ---------------------------------- */
-
-        /* Dirección y Derechos */
-        .footer-address {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .footer-address strong {
-            color: #333;
-        }
+        body { background-color: #000; color: #fff; font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid #d4af37; }
+        .logo { width: 100px; }
+        .lang-switch { color: #d4af37; font-weight: bold; }
+        .section { padding: 40px 20px; text-align: center; }
+        .golden-text { color: #d4af37; }
+        .image-container img { max-width: 100%; border: 1px solid #d4af37; margin: 10px 0; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .footer { padding: 40px; text-align: center; border-top: 1px solid #d4af37; }
+        .social-icons img { width: 50px; height: 50px; margin: 0 15px; cursor: pointer; transition: transform 0.2s; }
+        .social-icons img:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
 
-    <footer class="trulink-footer">
+<header class="header">
+    <img src="logo.png" class="logo" alt="Trulink Logo">
+    <div class="lang-switch">ES | EN</div>
+</header>
 
-        <!-- 1. TU FORMULARIO -->
-        <div class="footer-form">
-            <h3>Contáctanos</h3>
-            <input type="email" placeholder="Tu correo electrónico" style="padding: 10px; width: 80%;">
-            <button style="padding: 10px;">Enviar</button>
+<main>
+    <section class="section">
+        <h1 class="golden-text">Trulink: Ingeniería en Infraestructura Digital</h1>
+        <p>Manufactura industrial de alta precisión desde el Hub logístico de las Américas.</p>
+        <div class="image-container"><img src="panamakey.jpg" alt="Panama Key"></div>
+    </section>
+
+    <section class="section">
+        <h2>¿Quién es Trulink?</h2>
+        <p>Somos fabricantes líderes en soluciones de infraestructura para telecomunicaciones...</p>
+        <div class="image-container"><img src="factory.jpg" alt="Fábrica Trulink"></div>
+    </section>
+
+    <section class="section">
+        <h2>Nuestras Soluciones</h2>
+        <div class="products-grid">
+            <img src="asu.jpg" alt="ASU"> <img src="adss.jpg" alt="ADSS"> 
+            <img src="drop.jpg" alt="Drop"> <img src="herrajes.jpg" alt="Herrajes"> 
+            <img src="accesorios.jpg" alt="Accesorios">
         </div>
+    </section>
 
-        <!-- 2. SECCIÓN DE REDES SOCIALES -->
-        <div class="footer-social-container">
-            <!-- Enlace a LinkedIn -->
-            <a 
-                href="https://www.linkedin.com/company/trulink-fiber/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="social-icon-link"
-                aria-label="LinkedIn de Trulink Fiber LLC"
-            >
-                <img 
-                    src="linkedin.jpg" 
-                    alt="Logo de LinkedIn" 
-                    class="social-icon-img"
-                />
-            </a>
+    <section class="section">
+        <h2>Contacto e Inversionistas</h2>
+        <form action="mailto:ajpanama22@gmail.com" method="post" enctype="text/plain">
+            <input type="text" placeholder="Nombre" required><br>
+            <textarea placeholder="Mensaje"></textarea><br>
+            <button type="submit">Enviar Solicitud</button>
+        </form>
+    </section>
+</main>
 
-            <!-- Enlace a Instagram -->
-            <a 
-                href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="social-icon-link"
-                aria-label="Instagram de Trulink Fiber LLC"
-            >
-                <img 
-                    src="instagram.jpg" 
-                    alt="Logo de Instagram" 
-                    class="social-icon-img"
-                />
-            </a>
-        </div>
-
-        <!-- 3. TU DIRECCIÓN -->
-        <div class="footer-address">
-            <strong>Trulink Fiber LLC</strong><br>
-            123 Dirección Principal,<br>
-            Ciudad, Estado, Código Postal<br>
-            &copy; 2023 Trulink Fiber LLC. Todos los derechos reservados.
-        </div>
-
-    </footer>
+<footer class="footer">
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/company/trulink-fiber/" target="_blank">
+            <img src="linkedin.jpg" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" target="_blank">
+            <img src="instagram.jpg" alt="Instagram">
+        </a>
+    </div>
+    <p>&copy; 2026 Trulink Fiber LLC</p>
+</footer>
 
 </body>
 </html>
