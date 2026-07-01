@@ -14,8 +14,12 @@
         section { padding: 60px 5%; text-align: center; }
         .content-img { width: 100%; max-width: 800px; border: 1px solid #d4af37; margin: 20px 0; border-radius: 8px; }
         .reseña-container { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #ccc; }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
-        .grid img { width: 100%; border: 1px solid #333; border-radius: 4px; }
+        .solucion-item { text-align: center; }
+        .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
+        .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; }
+        
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
         input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
         button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; transition: 0.3s; }
@@ -57,11 +61,11 @@
 <section>
     <h2 class="golden">Nuestras Soluciones</h2>
     <div class="grid">
-        <img src="images/asu.jpg" alt="ASU">
-        <img src="images/adss.jpg" alt="ADSS">
-        <img src="images/drop.jpg" alt="Drop">
-        <img src="images/herraje.jpg" alt="Herrajes">
-        <img src="images/accesorios.jpg" alt="Accesorios">
+        <div class="solucion-item"><h3>ASU</h3><img src="images/asu.jpg" alt="ASU"></div>
+        <div class="solucion-item"><h3>ADSS</h3><img src="images/adss.jpg" alt="ADSS"></div>
+        <div class="solucion-item"><h3>DROP</h3><img src="images/drop.jpg" alt="Drop"></div>
+        <div class="solucion-item"><h3>HERRAJES</h3><img src="images/herraje.jpg" alt="Herrajes"></div>
+        <div class="solucion-item"><h3>ACCESORIOS</h3><img src="images/accesorios.jpg" alt="Accesorios"></div>
     </div>
 </section>
 
@@ -77,7 +81,7 @@
 
 <footer>
     <div class="social-icons">
-        <a href="https://www.linkedin.com/company/trulinkfiber/" target="_blank">
+        <a href="https://www.linkedin.com/company/trulink-fiber/" target="_blank">
             <img src="images/linkedin.jpg" alt="LinkedIn">
         </a>
         <a href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" target="_blank">
