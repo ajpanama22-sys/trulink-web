@@ -21,6 +21,11 @@
         .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
         .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; transition: 0.4s; }
         .solucion-item img:hover { transform: scale(1.05); border-color: #d4af37; }
+        /* Contenedores cuadrados para los videos */
+        .video-gallery { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .video-box { width: 320px; height: 320px; border: 2px solid #d4af37; border-radius: 12px; overflow: hidden; position: relative; }
+        .video-box video { width: 100%; height: 100%; object-fit: cover; }
+        .video-caption { margin-top: 10px; color: #d4af37; font-size: 0.9rem; font-weight: bold; }
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 20px; }
         input, textarea { padding: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 6px; transition: 0.3s; }
         input:focus, textarea:focus { border-color: #d4af37; outline: none; }
@@ -74,6 +79,28 @@
 </section>
 
 <section class="fade-in">
+    <h2 class="golden">Procesos de Fabricación</h2>
+    <div class="video-gallery">
+        <div style="text-align: center;">
+            <div class="video-box">
+                <video autoplay muted loop playsinline>
+                    <source src="video/fac1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="video-caption">Fabricación Monomodo Interior</p>
+        </div>
+        <div style="text-align: center;">
+            <div class="video-box">
+                <video autoplay muted loop playsinline>
+                    <source src="video/fac2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="video-caption">Fabricación ADSS</p>
+        </div>
+    </div>
+</section>
+
+<section class="fade-in">
     <h2 class="golden" data-key="contact">Contacto e Inversionistas</h2>
     <form id="contactForm" action="https://formspree.io/f/mgojnnep" method="POST">
         <input type="text" name="name" placeholder="Nombre" id="p-name" required>
@@ -86,7 +113,7 @@
 
 <footer>
     <div class="social-icons">
-        <a href="https://www.linkedin.com/company/trulinkfiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
+        <a href="https://www.linkedin.com/company/trulink-fiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
         <a href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
     </div>
     <p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p>
