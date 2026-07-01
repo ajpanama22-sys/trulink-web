@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trulink Fiber LLC</title>
+    <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+        body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         .golden { color: #d4af37; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 2px solid #d4af37; }
         .logo { height: 80px; width: auto; }
         .lang { color: #d4af37; font-weight: bold; cursor: pointer; font-size: 1.2rem; }
-        section { padding: 50px 5%; text-align: center; }
+        section { padding: 60px 5%; text-align: center; }
         .content-img { width: 100%; max-width: 800px; border: 1px solid #d4af37; margin: 20px 0; border-radius: 8px; }
+        .reseña-container { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #ccc; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
         .grid img { width: 100%; border: 1px solid #333; border-radius: 4px; }
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
         input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
-        button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; }
+        button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; transition: 0.3s; }
+        button:hover { background: #b8962d; }
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: #0a0a0a; }
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
         .social-icons a img { width: 50px; height: 50px; object-fit: contain; transition: transform 0.3s; }
@@ -38,7 +40,10 @@
 
 <section>
     <h2 class="golden">¿Quién es Trulink?</h2>
-    <p>Somos fabricantes líderes en soluciones de infraestructura para fibra óptica, brindando alta calidad y tecnología de punta global.</p>
+    <div class="reseña-container">
+        <p>En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.</p>
+        <p>Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.</p>
+    </div>
     <img src="images/fabrica.jpg" class="content-img" alt="Nuestra Fábrica">
 </section>
 
