@@ -9,16 +9,15 @@
         header { padding: 20px 50px; border-bottom: 1px solid #C5A059; display: flex; justify-content: space-between; align-items: center; background-color: #000; }
         .logo { max-width: 120px; }
         .hero { text-align: center; padding: 80px 20px; background-color: #000; border-bottom: 1px solid #C5A059; }
-        h1, h2 { color: #C5A059; margin-bottom: 10px; }
+        h1, h2 { color: #C5A059; margin-bottom: 10px; text-align: center; }
         h1 { font-size: 2.5rem; }
         h2 { font-size: 2rem; }
-        .subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 15px; }
-        .tagline { font-style: italic; color: #C5A059; font-size: 1.1rem; margin-top: 20px;}
+        .subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 15px; text-align: center; }
         .container { max-width: 900px; margin: auto; padding: 40px 20px; }
         .btn-lang { background: none; border: 1px solid #C5A059; color: #fff; cursor: pointer; padding: 5px 10px; transition: all 0.3s; }
         .btn-lang:hover { background-color: #C5A059; color: #000; }
-        /* Estilos de Imagen */
         .fabrica-img { width: 100%; border-radius: 8px; border: 2px solid #C5A059; margin: 20px 0; }
+        .resena-img { width: 100%; border-radius: 8px; margin-bottom: 30px; }
         .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
         .gallery-item { text-align: center; width: calc(20% - 20px); min-width: 150px; }
         .gallery-item img { width: 100%; height: auto; border-radius: 8px; border: 2px solid #C5A059; padding: 5px; box-sizing: border-box; }
@@ -46,32 +45,52 @@
 </section>
 
 <div class="container">
-    <h2 class="es">Manufactura de Clase Mundial</h2>
-    <h2 class="en" style="display:none;">World-Class Manufacturing</h2>
+    <img src="images/panamakey.jpg" alt="Panama Digital Key" class="resena-img">
     
-    <!-- Imagen de la fábrica -->
+    <h2 class="es">Trulink: La Vanguardia de la Infraestructura Digital</h2>
+    <h2 class="en" style="display:none;">Trulink: The Vanguard of Digital Infrastructure</h2>
+    
+    <p class="es" style="text-align: justify;">En <strong>Trulink</strong>, no solo fabricamos componentes; construimos el tejido conectivo que permite el flujo de información en la era digital global. Operando desde Panamá, proyectamos soluciones de infraestructura hacia todo el mundo. Adoptamos un enfoque de <strong>fabricación directa (OBM)</strong>, ofreciendo tecnología de punta —especializada en fibra óptica y sistemas de anclaje de alto rendimiento— con una eficiencia de costos que redefine el mercado. Nuestra marca es sinónimo de lealtad, honestidad y un trato empresarial "humanizado".</p>
+    <p class="en" style="display:none; text-align: justify;">At <strong>Trulink</strong>, we don't just manufacture components; we build the connective tissue that enables the flow of information in the global digital age. Operating from Panama, we project infrastructure solutions worldwide. We adopt a <strong>direct manufacturing (OBM)</strong> approach, offering cutting-edge technology—specialized in fiber optics and high-performance anchoring systems—with cost efficiency that redefines the market. Our brand is synonymous with loyalty, honesty, and a "humanized" business approach.</p>
+
+    <h2 class="es" style="margin-top: 40px;">Manufactura de Clase Mundial</h2>
+    <h2 class="en" style="display:none; margin-top: 40px;">World-Class Manufacturing</h2>
     <img src="images/fabrica.jpg" alt="Trulink Fiber Lab" class="fabrica-img">
-    
-    <p class="es">Gracias a nuestra alianza estratégica de manufactura, **Trulink** garantiza cables de fibra óptica de la más alta calidad. Nuestra infraestructura de laboratorio y líneas de producción aseguran precisión técnica constante.</p>
-    <p class="en" style="display:none;">Through our strategic manufacturing partnership, **Trulink** ensures the highest quality fiber optic cables. Our lab infrastructure and production lines ensure constant technical precision.</p>
 
     <div class="gallery">
         <div class="gallery-item"><img src="images/accesorios.jpg" alt="Accesorios"><p>Accesorios</p></div>
         <div class="gallery-item"><img src="images/herraje.jpg" alt="Herraje"><p>Herraje</p></div>
-        <div class="gallery-item"><img src="images/drop.png" alt="Fibra Drop"><p>Drop</p></div>
-        <div class="gallery-item"><img src="images/adss.png" alt="ADSS"><p>ADSS</p></div>
-        <div class="gallery-item"><img src="images/asu.png" alt="ASU"><p>ASU</p></div>
+        <div class="gallery-item"><img src="images/drop.jpg" alt="Fibra Drop"><p>Drop</p></div>
+        <div class="gallery-item"><img src="images/adss.jpg" alt="ADSS"><p>ADSS</p></div>
+        <div class="gallery-item"><img src="images/asu.jpg" alt="Fibra ASU"><p>ASU</p></div>
     </div>
 </div>
 
-<!-- ... resto del código (Conectividad y Formulario igual que antes) ... -->
+<div class="container" style="border-top: 1px solid #C5A059; margin-top: 40px; padding-top: 40px;">
+    <h2 class="es">Relación con Inversionistas</h2>
+    <h2 class="en" style="display:none;">Investor Relations</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="contact-form">
+        <input type="email" name="email" placeholder="Tu correo / Your email" required>
+        <textarea name="message" placeholder="Mensaje / Message"></textarea>
+        <button type="submit">Enviar / Send</button>
+    </form>
+</div>
+
+<footer>
+    <p>5203 Juan Tabo Blvd Ne, Ste 2b, Albuquerque, NM 87111-2691</p>
+</footer>
 
 <script>
     function setLang(lang) {
         const es = document.querySelectorAll('.es');
         const en = document.querySelectorAll('.en');
-        if (lang === 'es') { es.forEach(el => el.style.display = ''); en.forEach(el => el.style.display = 'none'); }
-        else { es.forEach(el => el.style.display = 'none'); en.forEach(el => el.style.display = ''); }
+        if (lang === 'es') { 
+            es.forEach(el => el.style.display = ''); 
+            en.forEach(el => el.style.display = 'none'); 
+        } else { 
+            es.forEach(el => el.style.display = 'none'); 
+            en.forEach(el => el.style.display = ''); 
+        }
     }
 </script>
 </body>
