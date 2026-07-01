@@ -1,69 +1,123 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trulink Footer</title>
+    <style>
+        /* Estilos Generales para el Footer */
+        .trulink-footer {
+            background-color: #f8f9fa;
+            padding: 50px 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            border-top: 2px solid #0056b3;
+        }
 
-const Footer = () => {
-  return (
-    <footer style={{ 
-      padding: '40px 20px', 
-      textAlign: 'center', 
-      backgroundColor: '#f9f9f9',
-      fontFamily: 'Arial, sans-serif' 
-    }}>
-      
-      {/* 1. Formulario */}
-      <div style={{ marginBottom: '40px' }}>
-        <h3>Contáctanos</h3>
-        <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-          <input type="email" placeholder="Tu correo electrónico" style={{ padding: '10px', width: '300px' }} />
-          <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>Enviar</button>
-        </form>
-      </div>
+        /* Contenedor del Formulario */
+        .footer-form {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-      {/* 2. Sección de Redes Sociales */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        gap: '35px', 
-        margin: '30px 0',
-        paddingTop: '20px',
-        borderTop: '1px solid #e0e0e0'
-      }}>
-        <a 
-          href="https://www.linkedin.com/company/trulink-fiber/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ display: 'inline-block', transition: 'transform 0.3s ease' }}
-        >
-          <img 
-            src="/linkedin.jpg" 
-            alt="LinkedIn" 
-            style={{ width: '50px', height: '50px', objectFit: 'contain' }} 
-          />
-        </a>
+        /* --- SECCIÓN DE REDES SOCIALES --- */
+        .footer-social-container {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+        }
 
-        <a 
-          href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ display: 'inline-block', transition: 'transform 0.3s ease' }}
-        >
-          <img 
-            src="/instagram.jpg" 
-            alt="Instagram" 
-            style={{ width: '50px', height: '50px', objectFit: 'contain' }} 
-          />
-        </a>
-      </div>
+        .social-icon-link {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+            line-height: 0;
+        }
 
-      {/* 3. Dirección */}
-      <address style={{ marginTop: '20px', fontStyle: 'normal', color: '#555' }}>
-        <strong>Trulink Fiber LLC</strong><br />
-        Panama City, Panama<br />
-        &copy; 2026 Trulink. Todos los derechos reservados.
-      </address>
-      
+        .social-icon-link:hover {
+            transform: scale(1.15);
+        }
+
+        .social-icon-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        /* ---------------------------------- */
+
+        /* Dirección y Derechos */
+        .footer-address {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-address strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="trulink-footer">
+
+        <!-- 1. TU FORMULARIO -->
+        <div class="footer-form">
+            <h3>Contáctanos</h3>
+            <input type="email" placeholder="Tu correo electrónico" style="padding: 10px; width: 80%;">
+            <button style="padding: 10px;">Enviar</button>
+        </div>
+
+        <!-- 2. SECCIÓN DE REDES SOCIALES -->
+        <div class="footer-social-container">
+            <!-- Enlace a LinkedIn -->
+            <a 
+                href="https://www.linkedin.com/company/trulink-fiber/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="social-icon-link"
+                aria-label="LinkedIn de Trulink Fiber LLC"
+            >
+                <img 
+                    src="linkedin.jpg" 
+                    alt="Logo de LinkedIn" 
+                    class="social-icon-img"
+                />
+            </a>
+
+            <!-- Enlace a Instagram -->
+            <a 
+                href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="social-icon-link"
+                aria-label="Instagram de Trulink Fiber LLC"
+            >
+                <img 
+                    src="instagram.jpg" 
+                    alt="Logo de Instagram" 
+                    class="social-icon-img"
+                />
+            </a>
+        </div>
+
+        <!-- 3. TU DIRECCIÓN -->
+        <div class="footer-address">
+            <strong>Trulink Fiber LLC</strong><br>
+            123 Dirección Principal,<br>
+            Ciudad, Estado, Código Postal<br>
+            &copy; 2023 Trulink Fiber LLC. Todos los derechos reservados.
+        </div>
+
     </footer>
-  );
-};
 
-export default Footer;
+</body>
+</html>
