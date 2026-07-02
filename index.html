@@ -6,6 +6,11 @@
     <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* Banner de ancho completo */
+        .full-width-banner { width: 100%; display: block; }
+        .full-width-banner img { width: 100%; height: auto; display: block; }
+
         .golden { color: #d4af37; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 2px solid #d4af37; }
         .logo { height: 80px; width: auto; }
@@ -42,6 +47,10 @@
         <option value="zh">中文</option>
     </select>
 </header>
+
+<div class="full-width-banner">
+    <img src="images/bannert.jpg" alt="Trulink Fiber Banner">
+</div>
 
 <section>
     <h1 class="golden" data-key="title">Trulink: Ingeniería en Infraestructura Digital</h1>
@@ -97,6 +106,7 @@
 
     function changeLanguage() {
         const lang = document.getElementById('lang-selector').value;
+        document.documentElement.lang = lang; // Actualiza el atributo lang
         document.querySelectorAll('[data-key]').forEach(el => el.textContent = translations[lang][el.getAttribute('data-key')]);
         document.getElementById('p-name').placeholder = translations[lang].name;
         document.getElementById('p-email').placeholder = translations[lang].email;
