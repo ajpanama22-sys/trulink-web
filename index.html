@@ -7,13 +7,11 @@
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         
-        /* Banner de ancho completo sin bordes */
         .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
 
         .golden { color: #d4af37; }
         
-        /* Header limpio sin borde inferior */
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000; }
         .logo { height: 80px; width: auto; }
         .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
@@ -21,12 +19,12 @@
         
         section { padding: 60px 5%; text-align: center; }
         
+        /* Contenedores para imágenes de tamaño uniforme */
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
-        .image-side { flex: 1; }
-        .image-side img { width: 100%; border: 1px solid #d4af37; border-radius: 8px; display: block; }
+        .image-side { flex: 1; display: flex; justify-content: center; }
+        .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; }
 
-        .reseña-container { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #ccc; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
         .solucion-item { text-align: center; }
         .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
@@ -45,6 +43,7 @@
 
         @media (max-width: 768px) {
             .flex-container { flex-direction: column; text-align: center; }
+            .image-side img { height: auto; }
         }
     </style>
 </head>
@@ -59,12 +58,9 @@
     <select id="lang-selector" onchange="changeLanguage()">
         <option value="es">Español</option>
         <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="zh">中文</option>
     </select>
 </header>
 
-<!-- Banner sin bordes para unión limpia -->
 <div class="full-width-banner">
     <img src="images/bannert.jpg" alt="Trulink Fiber Banner">
 </div>
@@ -72,19 +68,43 @@
 <section>
     <div class="flex-container">
         <div class="text-side">
-            <h1 class="golden">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
-            <p>TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
-            <p>Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
-            <p>Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
+            <h1 class="golden">T‑FAP™ – Trulink Fitting Anchor Platform</h1>
+            <p>El T‑FAP™ es la innovación en desarrollo de TRULINK FIBER LLC para transformar la infraestructura de telecomunicaciones en Latinoamérica.</p>
+            <ul>
+                <li><strong>Base eterna, herraje modular:</strong> diseñado para permanecer fijo en el poste y permitir que la red crezca sin generar desperdicio de materiales.</li>
+                <li><strong>Resistencia tropical:</strong> fabricado con polímeros avanzados reforzados con fibra de vidrio y aditivos UV, garantizando una vida útil superior a 20 años en ambientes extremos.</li>
+                <li><strong>Instalación inteligente:</strong> incorpora un sistema de cierre automático y doble seguridad mecánica que reduce fallas y tiempos de montaje.</li>
+                <li><strong>Sostenibilidad:</strong> sustituye al acero, eliminando la corrosión galvánica y aportando eficiencia operativa con cero residuos.</li>
+            </ul>
+            <p><em>👉 Aunque aún está en desarrollo, el T‑FAP™ refleja nuestra visión de infraestructura eterna, sostenible y adaptada al futuro digital de la región.</em></p>
         </div>
         <div class="image-side">
-            <img src="images/cajas.jpg" alt="Cajas de producto Trulink">
+            <img src="images/tfapweb.jpg" alt="Tecnología T-FAP">
+        </div>
+    </div>
+</section>
+
+<section style="background-color: #0a0a0a;">
+    <div class="flex-container">
+        <div class="image-side">
+            <img src="images/1caja.jpg" alt="Cajas de fibra óptica 305m">
+        </div>
+        <div class="text-side">
+            <h1 class="golden">Cajas de 305 m – Fibra Óptica para Interiores</h1>
+            <p>En TRULINK FIBER LLC hemos desarrollado un formato exclusivo que responde a las necesidades reales de instaladores y operadores: cajas de fibra óptica para interiores de 305 metros.</p>
+            <ul>
+                <li><strong>Formato único en la región:</strong> somos los únicos fabricantes que ofrecen este metraje, pensado para proyectos de mediana escala y despliegues ágiles.</li>
+                <li><strong>Optimización de instalación:</strong> evita desperdicio de cable y facilita el manejo en espacios reducidos.</li>
+                <li><strong>Control de inventario:</strong> práctica, transportable y permite trazabilidad precisa.</li>
+                <li><strong>Fabricación directa en Shenzhen:</strong> bajo estándares ISO, con distribución estratégica desde Panamá.</li>
+            </ul>
+            <p><em>👉 Este formato exclusivo refuerza nuestra visión de conectividad inteligente y logística disruptiva.</em></p>
         </div>
     </div>
 </section>
 
 <section>
-    <h2 class="golden" data-key="solutions">Nuestras Soluciones</h2>
+    <h2 class="golden">Nuestras Soluciones</h2>
     <div class="grid">
         <div class="solucion-item"><h3>ASU</h3><img src="images/asu.jpg" alt="ASU"></div>
         <div class="solucion-item"><h3>ADSS</h3><img src="images/adss.jpg" alt="ADSS"></div>
@@ -96,7 +116,6 @@
 
 <section style="background-color: #0a0a0a;">
     <h2 class="golden">Catálogos Técnicos</h2>
-    <p style="color: #ccc; margin-bottom: 30px;">Descarga nuestra documentación técnica en formato PDF:</p>
     <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
         <a href="doc/cataccesorios.pdf" download class="btn-download">Catálogo Accesorios</a>
         <a href="doc/catcables.pdf" download class="btn-download">Catálogo Cables</a>
@@ -105,40 +124,22 @@
 </section>
 
 <section>
-    <h2 class="golden" data-key="contact">Contacto e Inversionistas</h2>
+    <h2 class="golden">Contacto e Inversionistas</h2>
     <form action="https://formspree.io/f/mgojnnep" method="POST">
-        <input type="text" name="name" placeholder="Nombre" id="p-name" required>
-        <input type="email" name="email" placeholder="Correo" id="p-email" required>
-        <textarea name="message" placeholder="Mensaje" rows="4" id="p-msg" required></textarea>
-        <button type="submit" data-key="send">Enviar Solicitud</button>
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <textarea name="message" placeholder="Mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar Solicitud</button>
     </form>
 </section>
 
 <footer>
     <div class="social-icons">
         <a href="https://www.linkedin.com/company/trulinkfiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
-        <a href="https://www.instagram.com/trulinkfiber?igsh=MXd5ZWY0OTE4bGJ4NA==" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
+        <a href="https://www.instagram.com/trulinkfiber" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
     </div>
     <p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p>
 </footer>
-
-<script>
-    const translations = {
-        es: { solutions: "Nuestras Soluciones", contact: "Contacto e Inversionistas", name: "Nombre", email: "Correo", message: "Mensaje", send: "Enviar Solicitud" },
-        en: { solutions: "Our Solutions", contact: "Contact and Investors", name: "Name", email: "Email", message: "Message", send: "Send Request" },
-        ar: { solutions: "حلولنا", contact: "للتواصل والمستثمرين", name: "الاسم", email: "البريد الإلكتروني", message: "الرسالة", send: "إرسال الطلب" },
-        zh: { solutions: "我们的解决方案", contact: "联系与投资者", name: "姓名", email: "电子邮件", message: "信息", send: "发送请求" }
-    };
-
-    function changeLanguage() {
-        const lang = document.getElementById('lang-selector').value;
-        document.documentElement.lang = lang;
-        document.querySelectorAll('[data-key]').forEach(el => el.textContent = translations[lang][el.getAttribute('data-key')]);
-        document.getElementById('p-name').placeholder = translations[lang].name;
-        document.getElementById('p-email').placeholder = translations[lang].email;
-        document.getElementById('p-msg').placeholder = translations[lang].message;
-    }
-</script>
 
 </body>
 </html>
