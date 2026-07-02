@@ -2,27 +2,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        
+        .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
+
         .golden { color: #d4af37; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000; border-bottom: 1px solid #d4af37; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000; }
         .logo { height: 80px; width: auto; }
-        .header-address { font-size: 0.85rem; color: #ccc; text-align: center; }
-        #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 10px; cursor: pointer; }
+        .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
+        #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 5px; cursor: pointer; }
+        
         section { padding: 60px 5%; text-align: center; }
+        
+        /* Contenedores para imágenes de tamaño uniforme */
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
-        .text-side { flex: 2; }
+        .text-side { flex: 1; }
         .image-side { flex: 1; display: flex; justify-content: center; }
         .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
-        .btn-download { display: inline-block; padding: 15px 25px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; margin: 10px; font-weight: bold; transition: 0.3s; }
+        .solucion-item { text-align: center; }
+        .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
+        .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; }
+        
+        .btn-download { display: inline-block; padding: 15px 25px; background-color: transparent; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; transition: 0.3s; font-weight: bold; margin: 10px; }
         .btn-download:hover { background-color: #d4af37; color: #000; }
+
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
         input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
-        button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; color: #000; border-radius: 4px; }
+        button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; transition: 0.3s; }
+        button:hover { background: #b8962d; }
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: #0a0a0a; }
+        .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
+
+        @media (max-width: 768px) {
+            .flex-container { flex-direction: column; text-align: center; }
+            .image-side img { height: auto; }
+        }
     </style>
 </head>
 <body>
@@ -33,91 +55,108 @@
         <strong>TRULINK FIBER LLC</strong><br>
         5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US
     </div>
-    <select id="lang-selector" onchange="translatePage()">
+    <select id="lang-selector" onchange="changeLanguage()">
         <option value="es">Español</option>
         <option value="en">English</option>
-        <option value="zh">中文</option>
-        <option value="ar">العربية</option>
     </select>
 </header>
 
-<div class="full-width-banner"><img src="images/bannert.jpg" alt="Banner"></div>
+<div class="full-width-banner">
+    <img src="images/bannert.jpg" alt="Trulink Fiber Banner">
+</div>
 
-<section id="s1">
+<!-- Introducción General -->
+<section>
     <div class="flex-container">
         <div class="text-side">
-            <h1 class="golden" id="t1">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
-            <p id="p1">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital. Con operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, nos posicionamos como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros. Producción directa en Shenzhen bajo estándares ISO.</p>
+            <h1 class="golden">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
+            <p>TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
+            <p>Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
+            <p>Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
         </div>
-        <div class="image-side"><img src="images/cajas.jpg" alt="Cajas"></div>
-    </div>
-</section>
-
-<section id="s2" style="background-color: #0a0a0a;">
-    <div class="flex-container">
-        <div class="text-side">
-            <h1 class="golden" id="t2">T‑FAP™ – Trulink Fitting Anchor Platform</h1>
-            <p id="p2">El T‑FAP™ es nuestra innovación para transformar la infraestructura de telecomunicaciones. Con base eterna, herraje modular y resistencia tropical garantizada por más de 20 años, sustituye al acero eliminando la corrosión.</p>
-        </div>
-        <div class="image-side"><img src="images/tfab.jpg" alt="T-FAP"></div>
-    </div>
-</section>
-
-<section id="s3">
-    <div class="flex-container">
-        <div class="image-side"><img src="images/1caja.jpg" alt="Caja 305m"></div>
-        <div class="text-side">
-            <h1 class="golden" id="t3">Cajas de 305 m – Fibra Óptica para Interiores</h1>
-            <p id="p3">Formato exclusivo único en la región, diseñado para optimizar el transporte, facilitar el manejo en espacios reducidos y mejorar el control de inventario en proyectos institucionales y corporativos.</p>
+        <div class="image-side">
+            <img src="images/cajas.jpg" alt="Cajas de producto Trulink">
         </div>
     </div>
 </section>
 
-<section id="s4" style="background-color: #0a0a0a;">
-    <h2 class="golden" id="t4">Nuestras Soluciones</h2>
+<!-- T-FAP -->
+<section style="background-color: #0a0a0a;">
+    <div class="flex-container">
+        <div class="text-side">
+            <h1 class="golden">T‑FAP™ – Trulink Fitting Anchor Platform</h1>
+            <p>El T‑FAP™ es la innovación en desarrollo de TRULINK FIBER LLC para transformar la infraestructura de telecomunicaciones en Latinoamérica.</p>
+            <ul>
+                <li><strong>Base eterna, herraje modular:</strong> diseñado para permanecer fijo en el poste y permitir que la red crezca sin generar desperdicio de materiales.</li>
+                <li><strong>Resistencia tropical:</strong> fabricado con polímeros avanzados reforzados con fibra de vidrio y aditivos UV, garantizando una vida útil superior a 20 años en ambientes extremos.</li>
+                <li><strong>Instalación inteligente:</strong> incorpora un sistema de cierre automático y doble seguridad mecánica que reduce fallas y tiempos de montaje.</li>
+                <li><strong>Sostenibilidad:</strong> sustituye al acero, eliminando la corrosión galvánica y aportando eficiencia operativa con cero residuos.</li>
+            </ul>
+            <p><em>👉 Aunque aún está en desarrollo, el T‑FAP™ refleja nuestra visión de infraestructura eterna, sostenible y adaptada al futuro digital de la región.</em></p>
+        </div>
+        <div class="image-side">
+            <img src="images/tfab.jpg" alt="Tecnología T-FAP">
+        </div>
+    </div>
+</section>
+
+<!-- Cajas 305m -->
+<section>
+    <div class="flex-container">
+        <div class="image-side">
+            <img src="images/1caja.jpg" alt="Cajas de fibra óptica 305m">
+        </div>
+        <div class="text-side">
+            <h1 class="golden">Cajas de 305 m – Fibra Óptica para Interiores</h1>
+            <p>En TRULINK FIBER LLC hemos desarrollado un formato exclusivo que responde a las necesidades reales de instaladores y operadores: cajas de fibra óptica para interiores de 305 metros.</p>
+            <ul>
+                <li><strong>Formato único en la región:</strong> somos los únicos fabricantes que ofrecen este metraje, pensado para proyectos de mediana escala y despliegues ágiles.</li>
+                <li><strong>Optimización de instalación:</strong> evita desperdicio de cable y facilita el manejo en espacios reducidos.</li>
+                <li><strong>Control de inventario:</strong> práctica, transportable y permite trazabilidad precisa.</li>
+                <li><strong>Fabricación directa en Shenzhen:</strong> bajo estándares ISO, con distribución estratégica desde Panamá hacia Centroamérica, el Caribe y Colombia.</li>
+            </ul>
+            <p><em>👉 Este formato exclusivo refuerza nuestra visión de conectividad inteligente y logística disruptiva.</em></p>
+        </div>
+    </div>
+</section>
+
+<section style="background-color: #0a0a0a;">
+    <h2 class="golden">Nuestras Soluciones</h2>
     <div class="grid">
-        <img src="images/asu.jpg" alt="ASU">
-        <img src="images/adss.jpg" alt="ADSS">
-        <img src="images/drop.jpg" alt="Drop">
-        <img src="images/herraje.jpg" alt="Herrajes">
+        <div class="solucion-item"><h3>ASU</h3><img src="images/asu.jpg" alt="ASU"></div>
+        <div class="solucion-item"><h3>ADSS</h3><img src="images/adss.jpg" alt="ADSS"></div>
+        <div class="solucion-item"><h3>DROP</h3><img src="images/drop.jpg" alt="Drop"></div>
+        <div class="solucion-item"><h3>HERRAJES</h3><img src="images/herraje.jpg" alt="Herrajes"></div>
+        <div class="solucion-item"><h3>ACCESORIOS</h3><img src="images/accesorios.jpg" alt="Accesorios"></div>
     </div>
 </section>
 
-<section id="s5">
-    <h2 class="golden" id="t5">Catálogos Técnicos</h2>
-    <a href="doc/catcables.pdf" download class="btn-download" id="b1">Descargar Catálogo</a>
+<section>
+    <h2 class="golden">Catálogos Técnicos</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="doc/cataccesorios.pdf" download class="btn-download">Catálogo Accesorios</a>
+        <a href="doc/catcables.pdf" download class="btn-download">Catálogo Cables</a>
+        <a href="doc/catherrajes.pdf" download class="btn-download">Catálogo Herrajes</a>
+    </div>
 </section>
 
-<section id="s6" style="background-color: #0a0a0a;">
-    <h2 class="golden" id="t6">Contacto e Inversionistas</h2>
+<section style="background-color: #0a0a0a;">
+    <h2 class="golden">Contacto e Inversionistas</h2>
     <form action="https://formspree.io/f/mgojnnep" method="POST">
-        <input type="text" name="name" id="f1" placeholder="Nombre" required>
-        <input type="email" name="email" id="f2" placeholder="Correo" required>
-        <textarea name="message" id="f3" placeholder="Mensaje" rows="4" required></textarea>
-        <button type="submit" id="f4">Enviar Solicitud</button>
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <textarea name="message" placeholder="Mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar Solicitud</button>
     </form>
 </section>
 
-<footer><p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p></footer>
+<footer>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/company/trulinkfiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/trulinkfiber" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p>
+</footer>
 
-<script>
-    const data = {
-        es: { t1: "TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente", p1: "Empresa de ingeniería y manufactura especializada en soluciones de fibra óptica. Con operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, somos el único fabricante de cajas de 305m. Producción en Shenzhen bajo normas ISO.", t2: "T‑FAP™ – Trulink Fitting Anchor Platform", p2: "Innovación en desarrollo para infraestructura eterna. Base modular y resistencia tropical superior a 20 años.", t3: "Cajas de 305 m – Fibra Óptica para Interiores", p3: "Formato exclusivo único en la región, diseñado para optimizar el transporte, manejo en espacios reducidos y control de inventario.", t4: "Nuestras Soluciones", t5: "Catálogos Técnicos", b1: "Descargar Catálogo", t6: "Contacto e Inversionistas", f1: "Nombre", f2: "Correo", f3: "Mensaje", f4: "Enviar Solicitud" },
-        en: { t1: "TRULINK FIBER LLC – Smart Connectivity Engineering", p1: "Engineering and manufacturing company specialized in fiber optic solutions. With logistics in Panama, Central America, the Caribbean, and Colombia, we offer unique 305m indoor boxes. Production in Shenzhen under ISO standards.", t2: "T‑FAP™ – Trulink Fitting Anchor Platform", p2: "Innovation in development for eternal infrastructure. Modular base and tropical resistance for over 20 years.", t3: "305m Boxes – Indoor Fiber Optic", p3: "Exclusive format in the region, designed to optimize transport, handling in tight spaces, and inventory control.", t4: "Our Solutions", t5: "Technical Catalogs", b1: "Download Catalog", t6: "Contact and Investors", f1: "Name", f2: "Email", f3: "Message", f4: "Send Request" },
-        zh: { t1: "TRULINK FIBER LLC – 智能连接工程", p1: "专注于光纤解决方案的工程和制造公司。我们在巴拿马、中美洲、加勒比地区和哥伦比亚设有物流中心，是唯一提供 305 米室内光纤盒的制造商。在深圳生产，符合 ISO 标准。", t2: "T‑FAP™ – Trulink 配件锚固平台", p2: "基础设施创新开发。模块化基座，热带阻力超过 20 年。", t3: "305米箱装 – 室内光纤", p3: "该地区独家规格，旨在优化运输、狭窄空间的操作以及库存控制。", t4: "我们的解决方案", t5: "技术目录", b1: "下载目录", t6: "联系与投资者", f1: "姓名", f2: "电子邮件", f3: "消息", f4: "发送请求" },
-        ar: { t1: "TRULINK FIBER LLC – هندسة الاتصال الذكي", p1: "شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية. بفضل عملياتنا اللوجستية في بنما وأمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا، نحن المصنع الوحيد الذي يقدم صناديق ألياف 305 متر. إنتاج في شنتشن بمعايير ISO.", t2: "T‑FAP™ – منصة تثبيت وصلات Trulink", p2: "ابتكار قيد التطوير للبنية التحتية الأبدية. قاعدة معيارية ومقاومة للمناخ الاستوائي لأكثر من 20 عاماً.", t3: "صناديق 305 متر – ألياف بصرية داخلية", p3: "تنسيق حصري في المنطقة، مصمم لتحسين النقل والتعامل في المساحات الضيقة ومراقبة المخزون.", t4: "حلولنا", t5: "كتالوجات تقنية", b1: "تحميل الكتالوج", t6: "اتصل بنا والمستثمرون", f1: "الاسم", f2: "البريد الإلكتروني", f3: "الرسالة", f4: "إرسال الطلب" }
-    };
-    function translatePage() {
-        const lang = document.getElementById('lang-selector').value;
-        const d = data[lang];
-        Object.keys(d).forEach(id => {
-            const el = document.getElementById(id.replace('f', 'f').replace('b', 'b').replace('t', 't').replace('p', 'p'));
-            if(el) {
-                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = d[id];
-                else el.innerText = d[id];
-            }
-        });
-    }
-</script>
 </body>
 </html>
