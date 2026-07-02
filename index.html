@@ -2,27 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trulink Fiber LLC</title>
+    <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-        .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
         .golden { color: #d4af37; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000; }
         .logo { height: 80px; width: auto; }
-        .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
         #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 5px; cursor: pointer; }
         section { padding: 60px 5%; text-align: center; }
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
         .image-side { flex: 1; display: flex; justify-content: center; }
         .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; }
-        .btn-download { display: inline-block; padding: 15px 25px; background-color: transparent; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; transition: 0.3s; font-weight: bold; margin: 10px; }
-        .btn-download:hover { background-color: #d4af37; color: #000; }
-        form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
-        input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
-        button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
+        .btn-download { display: inline-block; padding: 15px 25px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; margin: 10px; }
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: #0a0a0a; }
     </style>
 </head>
@@ -30,8 +24,7 @@
 
 <header>
     <img src="1766012249626-removebg-preview.png" class="logo" alt="Trulink Logo">
-    <div class="header-address" id="addr">5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US</div>
-    <select id="lang-selector" onchange="updateLanguage()">
+    <select id="lang-selector" onchange="translatePage()">
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="zh">中文</option>
@@ -39,60 +32,54 @@
     </select>
 </header>
 
-<section id="intro">
+<div class="full-width-banner"><img src="images/bannert.jpg" alt="Banner"></div>
+
+<section id="sec-intro">
     <div class="flex-container">
         <div class="text-side">
-            <h1 class="golden" id="h1-intro">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
-            <p id="p-intro">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica...</p>
+            <h1 class="golden" id="t-intro">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
+            <p id="d-intro">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica...</p>
         </div>
         <div class="image-side"><img src="images/cajas.jpg" alt="Cajas"></div>
     </div>
 </section>
 
-<section style="background-color: #0a0a0a;">
+<section id="sec-tfap" style="background-color: #0a0a0a;">
     <div class="flex-container">
         <div class="text-side">
-            <h1 class="golden" id="h1-tfap">T‑FAP™ – Trulink Fitting Anchor Platform</h1>
-            <p id="p-tfap">El T‑FAP™ es la innovación en desarrollo de TRULINK FIBER LLC...</p>
+            <h1 class="golden" id="t-tfap">T‑FAP™ – Trulink Fitting Anchor Platform</h1>
+            <p id="d-tfap">El T‑FAP™ es la innovación en desarrollo de TRULINK FIBER LLC...</p>
         </div>
         <div class="image-side"><img src="images/tfab.jpg" alt="T-FAP"></div>
     </div>
 </section>
 
+<section id="sec-cajas">
+    <div class="flex-container">
+        <div class="image-side"><img src="images/1caja.jpg" alt="Caja 305m"></div>
+        <div class="text-side">
+            <h1 class="golden" id="t-cajas">Cajas de 305 m – Fibra Óptica para Interiores</h1>
+            <p id="d-cajas">En TRULINK FIBER LLC hemos desarrollado un formato exclusivo...</p>
+        </div>
+    </div>
+</section>
+
 <script>
-    const translations = {
-        es: {
-            h1Intro: "TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente",
-            pIntro: "TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica.",
-            h1Tfap: "T‑FAP™ – Trulink Fitting Anchor Platform",
-            pTfap: "El T‑FAP™ es la innovación en desarrollo de TRULINK FIBER LLC para transformar la infraestructura."
-        },
-        en: {
-            h1Intro: "TRULINK FIBER LLC – Smart Connectivity Engineering",
-            pIntro: "TRULINK FIBER LLC is an engineering and manufacturing company specializing in fiber optic solutions.",
-            h1Tfap: "T‑FAP™ – Trulink Fitting Anchor Platform",
-            pTfap: "T‑FAP™ is the innovation in development by TRULINK FIBER LLC to transform infrastructure."
-        },
-        zh: {
-            h1Intro: "TRULINK FIBER LLC – 智能连接工程",
-            pIntro: "TRULINK FIBER LLC 是一家专注于光纤解决方案的工程和制造公司。",
-            h1Tfap: "T‑FAP™ – Trulink 配件锚固平台",
-            pTfap: "T‑FAP™ 是 TRULINK FIBER LLC 开发的一项创新，旨在改变基础设施。"
-        },
-        ar: {
-            h1Intro: "TRULINK FIBER LLC – هندسة الاتصال الذكي",
-            pIntro: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية.",
-            h1Tfap: "T‑FAP™ – منصة تثبيت وصلات Trulink",
-            pTfap: "T‑FAP™ هو ابتكار قيد التطوير من قبل TRULINK FIBER LLC لتحويل البنية التحتية."
-        }
+    const content = {
+        es: { tIntro: "TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente", dIntro: "Empresa especializada en soluciones de fibra óptica con operaciones en Panamá y EE.UU.", tTfap: "T‑FAP™ – Trulink Fitting Anchor Platform", dTfap: "Innovación en infraestructura: base eterna, herraje modular y alta resistencia tropical.", tCajas: "Cajas de 305 m – Fibra Óptica para Interiores", dCajas: "Formato exclusivo para proyectos de mediana escala, optimizando logística e instalación." },
+        en: { tIntro: "TRULINK FIBER LLC – Smart Connectivity Engineering", dIntro: "Specialized engineering and manufacturing company for fiber optic solutions with operations in Panama and the US.", tTfap: "T‑FAP™ – Trulink Fitting Anchor Platform", dTfap: "Infrastructure innovation: eternal base, modular hardware, and high tropical resistance.", tCajas: "305m Boxes – Indoor Fiber Optic", dCajas: "Exclusive format for medium-scale projects, optimizing logistics and installation." },
+        zh: { tIntro: "TRULINK FIBER LLC – 智能连接工程", dIntro: "专注于光纤解决方案的工程和制造公司，在巴拿马和美国设有运营中心。", tTfap: "T‑FAP™ – Trulink 配件锚固平台", dTfap: "基础设施创新：永恒基座、模块化硬件和高热带阻力。", tCajas: "305米箱装 – 室内光纤", dCajas: "专为中型项目设计的独家规格，优化物流和安装。" },
+        ar: { tIntro: "TRULINK FIBER LLC – هندسة الاتصال الذكي", dIntro: "شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية تعمل في بنما والولايات المتحدة.", tTfap: "T‑FAP™ – منصة تثبيت وصلات Trulink", dTfap: "ابتكار البنية التحتية: قاعدة أبدية، أجهزة معيارية، ومقاومة عالية للمناخ الاستوائي.", tCajas: "صناديق 305 متر – ألياف بصرية داخلية", dCajas: "تنسيق حصري للمشاريع متوسطة الحجم، لتحسين الخدمات اللوجستية والتركيب." }
     };
 
-    function updateLanguage() {
+    function translatePage() {
         const lang = document.getElementById('lang-selector').value;
-        document.getElementById('h1-intro').innerText = translations[lang].h1Intro;
-        document.getElementById('p-intro').innerText = translations[lang].pIntro;
-        document.getElementById('h1-tfap').innerText = translations[lang].h1Tfap;
-        document.getElementById('p-tfap').innerText = translations[lang].pTfap;
+        document.getElementById('t-intro').innerText = content[lang].tIntro;
+        document.getElementById('d-intro').innerText = content[lang].dIntro;
+        document.getElementById('t-tfap').innerText = content[lang].tTfap;
+        document.getElementById('d-tfap').innerText = content[lang].dTfap;
+        document.getElementById('t-cajas').innerText = content[lang].tCajas;
+        document.getElementById('d-cajas').innerText = content[lang].dCajas;
     }
 </script>
 
