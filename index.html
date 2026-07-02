@@ -7,6 +7,7 @@
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         
+        /* Banner de ancho completo */
         .full-width-banner { width: 100%; display: block; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
 
@@ -22,7 +23,7 @@
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
         .image-side { flex: 1; }
-        .image-side img { width: 100%; border: 1px solid #d4af37; border-radius: 8px; }
+        .image-side img { width: 100%; border: 1px solid #d4af37; border-radius: 8px; display: block; }
 
         .reseña-container { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: #ccc; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
@@ -37,7 +38,6 @@
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
         .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
 
-        /* Ajuste responsivo para móviles */
         @media (max-width: 768px) {
             .flex-container { flex-direction: column; text-align: center; }
         }
@@ -66,22 +66,15 @@
 <section>
     <div class="flex-container">
         <div class="text-side">
-            <h1 class="golden" data-key="title">Trulink: Ingeniería en Infraestructura Digital</h1>
-            <p data-key="subtitle">Manufactura industrial de alta precisión desde el Hub logístico de las Américas. Nuestra capacidad operativa nos permite atender proyectos a gran escala con tiempos de entrega optimizados y estándares internacionales de calidad.</p>
+            <h1 class="golden">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
+            <p>TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
+            <p>Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
+            <p>Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
         </div>
         <div class="image-side">
-            <img src="images/cajas.jpg" alt="Cajas de producto">
+            <img src="images/cajas.jpg" alt="Cajas de producto Trulink">
         </div>
     </div>
-</section>
-
-<section>
-    <h2 class="golden" data-key="who_we_are">¿Quién es Trulink?</h2>
-    <div class="reseña-container">
-        <p data-key="desc1">En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.</p>
-        <p data-key="desc2">Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.</p>
-    </div>
-    <img src="images/fabrica.jpg" class="content-img" alt="Nuestra Fábrica" style="width: 100%; max-width: 800px; border: 1px solid #d4af37; margin: 20px 0; border-radius: 8px;">
 </section>
 
 <section>
@@ -114,11 +107,12 @@
 </footer>
 
 <script>
+    // Se mantiene la lógica de idiomas para las secciones restantes
     const translations = {
-        es: { title: "Trulink: Ingeniería en Infraestructura Digital", subtitle: "Manufactura industrial de alta precisión desde el Hub logístico de las Américas. Nuestra capacidad operativa nos permite atender proyectos a gran escala con tiempos de entrega optimizados y estándares internacionales de calidad.", who_we_are: "¿Quién es Trulink?", desc1: "En Trulink Fiber LLC, nos especializamos en el desarrollo y manufactura de infraestructura de fibra óptica de alto desempeño. Nuestra misión es acortar las distancias digitales mediante soluciones de conectividad que combinan ingeniería de precisión, materiales de vanguardia y una capacidad logística inigualable desde nuestro centro de operaciones en Panamá.", desc2: "Con años de experiencia en el sector, nos hemos posicionado como un aliado estratégico para proveedores de servicios, integradores y grandes proyectos de telecomunicaciones. Cada producto bajo nuestra marca garantiza cumplimiento técnico, durabilidad extrema y la eficiencia necesaria para soportar la demanda actual de datos en el continente americano.", solutions: "Nuestras Soluciones", contact: "Contacto e Inversionistas", name: "Nombre", email: "Correo", message: "Mensaje", send: "Enviar Solicitud" },
-        en: { title: "Trulink: Digital Infrastructure Engineering", subtitle: "High-precision industrial manufacturing from the logistics hub of the Americas. Our operational capacity allows us to handle large-scale projects with optimized delivery times and international quality standards.", who_we_are: "Who is Trulink?", desc1: "At Trulink Fiber LLC, we specialize in the development and manufacturing of high-performance fiber optic infrastructure. Our mission is to bridge digital distances through connectivity solutions that combine precision engineering, cutting-edge materials, and unrivaled logistics capabilities from our operations center in Panama.", desc2: "With years of experience in the sector, we have positioned ourselves as a strategic partner for service providers, integrators, and large telecommunications projects. Every product under our brand guarantees technical compliance, extreme durability, and the efficiency required to support the current data demand on the American continent.", solutions: "Our Solutions", contact: "Contact and Investors", name: "Name", email: "Email", message: "Message", send: "Send Request" },
-        ar: { title: "ترولينك: هندسة البنية التحتية الرقمية", subtitle: "تصنيع صناعي عالي الدقة من المركز اللوجستي للأمريكتين. تسمح لنا قدرتنا التشغيلية بتنفيذ مشاريع واسعة النطاق مع أوقات تسليم محسنة ومعايير جودة دولية.", who_we_are: "من هي ترولينك؟", desc1: "في شركة ترولينك للألياف الضوئية، نحن متخصصون في تطوير وتصنيع البنية التحتية للألياف الضوئية عالية الأداء. مهمتنا هي تقصير المسافات الرقمية من خلال حلول الاتصال التي تجمع بين الهندسة الدقيقة والمواد المتطورة والقدرات اللوجستية التي لا مثيل لها من مركز عملياتنا في بنما.", desc2: "بفضل سنوات خبرتنا في هذا القطاع، وضعنا أنفسنا كشريك استراتيجي لمقدمي الخدمات والمكاملين ومشاريع الاتصالات الكبيرة. يضمن كل منتج تحت علامتنا التجارية الامتثال الفني والمتانة القصوى والكفاءة اللازمة لدعم الطلب الحالي على البيانات في القارة الأمريكية.", solutions: "حلولنا", contact: "للتواصل والمستثمرين", name: "الاسم", email: "البريد الإلكتروني", message: "الرسالة", send: "إرسال الطلب" },
-        zh: { title: "Trulink: 数字基础设施工程", subtitle: "来自美洲物流中心的高精度工业制造。我们的运营能力使我们能够以优化的交付时间和国际质量标准处理大型项目。", who_we_are: "Trulink 是谁?", desc1: "在 Trulink Fiber LLC，我们专注于高性能光纤基础设施的开发和制造。我们的使命是通过连接解决方案来缩短数字距离，这些解决方案结合了精密工程、尖端材料以及我们位于巴拿马的运营中心无可比拟的物流能力。", desc2: "凭借在该领域的多年经验，我们已成为服务提供商、集成商和大型电信项目的战略合作伙伴。我们品牌下的每项产品都保证了技术合规性、极高的耐用性以及支持美洲大陆当前数据需求所需的效率。", solutions: "我们的解决方案", contact: "联系与投资者", name: "姓名", email: "电子邮件", message: "信息", send: "发送请求" }
+        es: { solutions: "Nuestras Soluciones", contact: "Contacto e Inversionistas", name: "Nombre", email: "Correo", message: "Mensaje", send: "Enviar Solicitud" },
+        en: { solutions: "Our Solutions", contact: "Contact and Investors", name: "Name", email: "Email", message: "Message", send: "Send Request" },
+        ar: { solutions: "حلولنا", contact: "للتواصل والمستثمرين", name: "الاسم", email: "البريد الإلكتروني", message: "الرسالة", send: "إرسال الطلب" },
+        zh: { solutions: "我们的解决方案", contact: "联系与投资者", name: "姓名", email: "电子邮件", message: "信息", send: "发送请求" }
     };
 
     function changeLanguage() {
