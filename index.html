@@ -7,11 +7,14 @@
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         
-        .full-width-banner { width: 100%; display: block; }
+        /* Banner de ancho completo sin bordes */
+        .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
 
         .golden { color: #d4af37; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 2px solid #d4af37; }
+        
+        /* Header limpio sin borde inferior */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000; }
         .logo { height: 80px; width: auto; }
         .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
         #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 5px; cursor: pointer; }
@@ -61,6 +64,7 @@
     </select>
 </header>
 
+<!-- Banner sin bordes para unión limpia -->
 <div class="full-width-banner">
     <img src="images/bannert.jpg" alt="Trulink Fiber Banner">
 </div>
