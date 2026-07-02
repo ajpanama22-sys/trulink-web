@@ -5,6 +5,7 @@
     <title>Trulink Fiber LLC | Ingeniería de Precisión</title>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
         .golden { color: #d4af37; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000; }
@@ -16,7 +17,11 @@
         .image-side { flex: 1; display: flex; justify-content: center; }
         .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
-        .btn-download { display: inline-block; padding: 15px 25px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; margin: 10px; }
+        .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; }
+        .btn-download { display: inline-block; padding: 15px 25px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; margin: 10px; font-weight: bold; }
+        form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
+        input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
+        button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; color: #000; border-radius: 4px; }
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: #0a0a0a; }
     </style>
 </head>
@@ -34,42 +39,69 @@
 
 <div class="full-width-banner"><img src="images/bannert.jpg" alt="Banner"></div>
 
-<section id="sec-intro">
+<section>
     <div class="flex-container">
         <div class="text-side">
             <h1 class="golden" id="t-intro">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
-            <p id="d-intro">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica...</p>
+            <p id="d-intro">Empresa de ingeniería y manufactura especializada en soluciones de fibra óptica.</p>
         </div>
         <div class="image-side"><img src="images/cajas.jpg" alt="Cajas"></div>
     </div>
 </section>
 
-<section id="sec-tfap" style="background-color: #0a0a0a;">
+<section style="background-color: #0a0a0a;">
     <div class="flex-container">
         <div class="text-side">
             <h1 class="golden" id="t-tfap">T‑FAP™ – Trulink Fitting Anchor Platform</h1>
-            <p id="d-tfap">El T‑FAP™ es la innovación en desarrollo de TRULINK FIBER LLC...</p>
+            <p id="d-tfap">Innovación en desarrollo para infraestructura eterna y sostenible.</p>
         </div>
         <div class="image-side"><img src="images/tfab.jpg" alt="T-FAP"></div>
     </div>
 </section>
 
-<section id="sec-cajas">
+<section>
     <div class="flex-container">
         <div class="image-side"><img src="images/1caja.jpg" alt="Caja 305m"></div>
         <div class="text-side">
             <h1 class="golden" id="t-cajas">Cajas de 305 m – Fibra Óptica para Interiores</h1>
-            <p id="d-cajas">En TRULINK FIBER LLC hemos desarrollado un formato exclusivo...</p>
+            <p id="d-cajas">Formato exclusivo que optimiza la instalación y el transporte.</p>
         </div>
     </div>
 </section>
 
+<section style="background-color: #0a0a0a;">
+    <h2 class="golden" id="t-soluciones">Nuestras Soluciones</h2>
+    <div class="grid">
+        <div class="solucion-item"><img src="images/asu.jpg" alt="ASU"></div>
+        <div class="solucion-item"><img src="images/adss.jpg" alt="ADSS"></div>
+        <div class="solucion-item"><img src="images/drop.jpg" alt="Drop"></div>
+        <div class="solucion-item"><img src="images/herraje.jpg" alt="Herrajes"></div>
+    </div>
+</section>
+
+<section>
+    <h2 class="golden" id="t-catalogos">Catálogos Técnicos</h2>
+    <a href="doc/catcables.pdf" download class="btn-download" id="btn-cat">Descargar Catálogo</a>
+</section>
+
+<section style="background-color: #0a0a0a;">
+    <h2 class="golden" id="t-contacto">Contacto</h2>
+    <form action="https://formspree.io/f/mgojnnep" method="POST">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <textarea name="message" placeholder="Mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<footer><p>&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p></footer>
+
 <script>
     const content = {
-        es: { tIntro: "TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente", dIntro: "Empresa especializada en soluciones de fibra óptica con operaciones en Panamá y EE.UU.", tTfap: "T‑FAP™ – Trulink Fitting Anchor Platform", dTfap: "Innovación en infraestructura: base eterna, herraje modular y alta resistencia tropical.", tCajas: "Cajas de 305 m – Fibra Óptica para Interiores", dCajas: "Formato exclusivo para proyectos de mediana escala, optimizando logística e instalación." },
-        en: { tIntro: "TRULINK FIBER LLC – Smart Connectivity Engineering", dIntro: "Specialized engineering and manufacturing company for fiber optic solutions with operations in Panama and the US.", tTfap: "T‑FAP™ – Trulink Fitting Anchor Platform", dTfap: "Infrastructure innovation: eternal base, modular hardware, and high tropical resistance.", tCajas: "305m Boxes – Indoor Fiber Optic", dCajas: "Exclusive format for medium-scale projects, optimizing logistics and installation." },
-        zh: { tIntro: "TRULINK FIBER LLC – 智能连接工程", dIntro: "专注于光纤解决方案的工程和制造公司，在巴拿马和美国设有运营中心。", tTfap: "T‑FAP™ – Trulink 配件锚固平台", dTfap: "基础设施创新：永恒基座、模块化硬件和高热带阻力。", tCajas: "305米箱装 – 室内光纤", dCajas: "专为中型项目设计的独家规格，优化物流和安装。" },
-        ar: { tIntro: "TRULINK FIBER LLC – هندسة الاتصال الذكي", dIntro: "شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية تعمل في بنما والولايات المتحدة.", tTfap: "T‑FAP™ – منصة تثبيت وصلات Trulink", dTfap: "ابتكار البنية التحتية: قاعدة أبدية، أجهزة معيارية، ومقاومة عالية للمناخ الاستوائي.", tCajas: "صناديق 305 متر – ألياف بصرية داخلية", dCajas: "تنسيق حصري للمشاريع متوسطة الحجم، لتحسين الخدمات اللوجستية والتركيب." }
+        es: { tIntro: "TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente", dIntro: "Empresa especializada en soluciones de fibra óptica.", tTfap: "T‑FAP™ – Trulink Fitting Anchor Platform", dTfap: "Innovación en desarrollo para infraestructura eterna.", tCajas: "Cajas de 305 m – Fibra Óptica para Interiores", dCajas: "Formato exclusivo para proyectos de mediana escala.", tSol: "Nuestras Soluciones", tCat: "Catálogos Técnicos", btnCat: "Descargar Catálogo", tCont: "Contacto" },
+        en: { tIntro: "TRULINK FIBER LLC – Smart Connectivity Engineering", dIntro: "Company specialized in fiber optic solutions.", tTfap: "T‑FAP™ – Trulink Fitting Anchor Platform", dTfap: "Innovation in development for eternal infrastructure.", tCajas: "305m Boxes – Indoor Fiber Optic", dCajas: "Exclusive format for medium-scale projects.", tSol: "Our Solutions", tCat: "Technical Catalogs", btnCat: "Download Catalog", tCont: "Contact" },
+        zh: { tIntro: "TRULINK FIBER LLC – 智能连接工程", dIntro: "专注于光纤解决方案的公司。", tTfap: "T‑FAP™ – Trulink 配件锚固平台", dTfap: "基础设施创新的开发。", tCajas: "305米箱装 – 室内光纤", dCajas: "专为中型项目设计的独家规格。", tSol: "我们的解决方案", tCat: "技术目录", btnCat: "下载目录", tCont: "联系方式" },
+        ar: { tIntro: "TRULINK FIBER LLC – هندسة الاتصال الذكي", dIntro: "شركة متخصصة في حلول الألياف الضوئية.", tTfap: "T‑FAP™ – منصة تثبيت وصلات Trulink", dTfap: "ابتكار قيد التطوير للبنية التحتية.", tCajas: "صناديق 305 متر – ألياف بصرية داخلية", dCajas: "تنسيق حصري للمشاريع متوسطة الحجم.", tSol: "حلولنا", tCat: "كتالوجات تقنية", btnCat: "تحميل الكتالوج", tCont: "اتصل بنا" }
     };
 
     function translatePage() {
@@ -80,6 +112,10 @@
         document.getElementById('d-tfap').innerText = content[lang].dTfap;
         document.getElementById('t-cajas').innerText = content[lang].tCajas;
         document.getElementById('d-cajas').innerText = content[lang].dCajas;
+        document.getElementById('t-soluciones').innerText = content[lang].tSol;
+        document.getElementById('t-catalogos').innerText = content[lang].tCat;
+        document.getElementById('btn-cat').innerText = content[lang].btnCat;
+        document.getElementById('t-contacto').innerText = content[lang].tCont;
     }
 </script>
 
