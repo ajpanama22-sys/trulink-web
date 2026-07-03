@@ -24,6 +24,9 @@
         .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; }
         .btn-download { display: inline-block; padding: 15px 25px; background-color: transparent; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; transition: 0.3s; font-weight: bold; margin: 10px; }
         .btn-download:hover { background-color: #d4af37; color: #000; }
+        /* Estilo para los cuadros de región */
+        .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
+        .region-card { background: #111; padding: 25px; border: 1px solid #d4af37; border-radius: 8px; }
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
         input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
         button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; transition: 0.3s; }
@@ -100,28 +103,15 @@
     </div>
 </section>
 
+<!-- Sección Regional Traducible -->
 <section style="background-color: #0a0a0a; border-top: 1px solid #d4af37; border-bottom: 1px solid #d4af37;">
     <h2 id="txt33" class="golden">Presencia Regional Estratégica</h2>
-    <p id="txt34" style="max-width: 800px; margin: 0 auto 30px auto; color: #ccc;">
-        TRULINK FIBER LLC cuenta con un robusto hub logístico y operativo diseñado para garantizar la eficiencia en el suministro de infraestructura de conectividad en los mercados más dinámicos de la región.
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-        <div style="background: #111; padding: 20px; border: 1px solid #d4af37; border-radius: 8px; width: 200px;">
-            <h3 class="golden">Panamá</h3>
-            <p style="font-size: 0.9rem;">Hub Logístico Central</p>
-        </div>
-        <div style="background: #111; padding: 20px; border: 1px solid #d4af37; border-radius: 8px; width: 200px;">
-            <h3 class="golden">Centroamérica</h3>
-            <p style="font-size: 0.9rem;">Cobertura Total</p>
-        </div>
-        <div style="background: #111; padding: 20px; border: 1px solid #d4af37; border-radius: 8px; width: 200px;">
-            <h3 class="golden">El Caribe</h3>
-            <p style="font-size: 0.9rem;">Suministro Ágil</p>
-        </div>
-        <div style="background: #111; padding: 20px; border: 1px solid #d4af37; border-radius: 8px; width: 200px;">
-            <h3 class="golden">Colombia</h3>
-            <p style="font-size: 0.9rem;">Presencia Estratégica</p>
-        </div>
+    <p id="txt34" style="color: #ccc; margin-bottom: 30px;">TRULINK FIBER LLC cuenta con un robusto hub logístico y operativo para toda la región.</p>
+    <div class="region-grid">
+        <div class="region-card"><h3 id="reg1-t" class="golden">Panamá</h3><p id="reg1-d">Hub Logístico Central</p></div>
+        <div class="region-card"><h3 id="reg2-t" class="golden">Centroamérica</h3><p id="reg2-d">Cobertura Total</p></div>
+        <div class="region-card"><h3 id="reg3-t" class="golden">El Caribe</h3><p id="reg3-d">Suministro Ágil</p></div>
+        <div class="region-card"><h3 id="reg4-t" class="golden">Colombia</h3><p id="reg4-d">Presencia Estratégica</p></div>
     </div>
 </section>
 
@@ -192,7 +182,11 @@
             txt24: "If you wish to contact us to request commercial information or explore investment opportunities, please complete the following form. Our team will contact you shortly.",
             txt25: "Full Name", txt26: "Email", txt27: "Phone", txt28: "Company", txt29: "Country", txt30: "Message or reason for inquiry", txt31: "Send Request", txt32: "© 2026 Trulink Fiber LLC. All rights reserved.",
             txt33: "Strategic Regional Presence",
-            txt34: "TRULINK FIBER LLC has a robust logistics and operational hub designed to ensure efficiency in the supply of connectivity infrastructure in the region's most dynamic markets."
+            txt34: "TRULINK FIBER LLC has a robust logistics and operational hub designed to ensure efficiency in the supply of connectivity infrastructure in the region's most dynamic markets.",
+            "reg1-t": "Panama", "reg1-d": "Central Logistics Hub",
+            "reg2-t": "Central America", "reg2-d": "Total Coverage",
+            "reg3-t": "Caribbean", "reg3-d": "Agile Supply",
+            "reg4-t": "Colombia", "reg4-d": "Strategic Presence"
         },
         ar: {
             txt1: "TRULINK FIBER LLC – هندسة الاتصال الذكي",
@@ -213,7 +207,11 @@
             txt24: "إذا كنت ترغب في الاتصال بنا لطلب معلومات تجارية أو استكشاف فرص الاستثمار، يرجى ملء النموذج التالي. سيتصل بك فريقنا في أقرب وقت.",
             txt25: "الاسم الكامل", txt26: "البريد الإلكتروني", txt27: "هاتف", txt28: "شركة", txt29: "بلد", txt30: "رسالة أو سبب الاستفسار", txt31: "إرسال الطلب", txt32: "© 2026 Trulink Fiber LLC. جميع الحقوق محفوظة.",
             txt33: "الحضور الإقليمي الاستراتيجي",
-            txt34: "تمتلك TRULINK FIBER LLC مركزاً لوجستياً وتشغيلياً قوياً مصمماً لضمان الكفاءة في توريد البنية التحتية للاتصال في أكثر الأسواق ديناميكية في المنطقة."
+            txt34: "تمتلك TRULINK FIBER LLC مركزاً لوجستياً وتشغيلياً قوياً مصمماً لضمان الكفاءة في توريد البنية التحتية للاتصال في أكثر الأسواق ديناميكية في المنطقة.",
+            "reg1-t": "بنما", "reg1-d": "مركز لوجستي مركزي",
+            "reg2-t": "أمريكا الوسطى", "reg2-d": "تغطية كاملة",
+            "reg3-t": "الكاريبي", "reg3-d": "إمداد سريع",
+            "reg4-t": "كولومبيا", "reg4-d": "تواجد استراتيجي"
         }
     };
 
