@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* FONDO DE CIRCUITOS PREMIUM: ULTRA SUTIL (MINIMALISTA) */
+        /* FONDO DE CIRCUITOS PREMIUM: ASÍNCRONO Y ULTRA SUTIL */
         .circuito-bg {
             position: fixed;
             top: 0;
@@ -39,24 +39,24 @@
         .foton {
             stroke-opacity: 0;
             stroke: #d4af37;
-            stroke-dasharray: 40 320; /* Estela más larga y espaciada */
+            stroke-dasharray: 40 320; 
             animation: viajarFoton linear infinite;
         }
-        /* Ritmo pausado y asíncrono para evitar saturación visual */
         .f1 { animation-duration: 8s; animation-delay: 0s; }
         .f2 { animation-duration: 10s; animation-delay: 4s; animation-direction: reverse; }
         .f3 { animation-duration: 9s; animation-delay: 2s; }
         .f4 { animation-duration: 12s; animation-delay: 6s; }
 
-        /* Nodos terminales dorados reducidos en un 40% y con pulsación más discreta */
+        /* Nodos terminales dorados con patrones de brillo totalmente independientes */
         .nodo {
             fill: #d4af37;
             fill-opacity: 0.1;
             transform-origin: center;
-            animation: brillarNodo 4s ease-in-out infinite alternate;
         }
-        .n1 { animation-delay: 0.8s; animation-duration: 3s; }
-        .n2 { animation-delay: 2.5s; animation-duration: 4s; }
+        
+        /* Cada nodo tiene su propia animación con velocidad y retrasos únicos para romper el unísono */
+        .n1 { animation: brillarNodo1 5s ease-in-out infinite alternate; animation-delay: 0.5s; }
+        .n2 { animation: brillarNodo2 6s ease-in-out infinite alternate; animation-delay: 3.2s; }
 
         @keyframes viajarFoton {
             0% { opacity: 0; stroke-dashoffset: 360; filter: drop-shadow(0 0 1px #d4af37); }
@@ -64,10 +64,19 @@
             90% { opacity: 0.75; }
             100% { opacity: 0; stroke-dashoffset: -360; filter: drop-shadow(0 0 3px #d4af37); }
         }
-        @keyframes brillarNodo {
-            0% { fill-opacity: 0.1; r: 2.3; filter: none; }
-            50% { fill-opacity: 0.8; r: 3.2; filter: drop-shadow(0 0 3px #d4af37); }
-            100% { fill-opacity: 0.2; r: 2.3; filter: none; }
+        
+        /* Animación independiente para el primer grupo de nodos */
+        @keyframes brillarNodo1 {
+            0% { fill-opacity: 0.05; r: 2.2; filter: none; }
+            45% { fill-opacity: 0.85; r: 3.2; filter: drop-shadow(0 0 4px #d4af37); }
+            90%, 100% { fill-opacity: 0.1; r: 2.2; filter: none; }
+        }
+        
+        /* Animación independiente para el segundo grupo de nodos */
+        @keyframes brillarNodo2 {
+            0%, 30% { fill-opacity: 0.08; r: 2.2; filter: none; }
+            75% { fill-opacity: 0.75; r: 3.0; filter: drop-shadow(0 0 3px #d4af37); }
+            100% { fill-opacity: 0.15; r: 2.2; filter: none; }
         }
         /* FIN SISTEMA DE FONDO */
 
@@ -133,20 +142,24 @@
 </head>
 <body>
 
+<!-- CONTENEDOR DE CIRCUITO CON DESTELLOS TOTALMENTE ASÍNCRONOS -->
 <svg class="circuito-bg">
     <defs>
         <pattern id="circuit-pattern" width="180" height="180" patternUnits="userSpaceOnUse" viewBox="0 0 200 200">
+            <!-- Capas Estáticas Base Doradas -->
             <g class="base-path">
                 <path d="M0 20 h40 l40 40 v50 l-30 30 h-50 M0 28 h36 l40 40 v50 l-30 30 h-46 M0 36 h32 l40 40 v50 l-30 30 h-42" />
                 <path d="M200 30 v40 l-40 40 h-30 v50 l35 35 M200 38 v36 l-40 40 h-30 v50 l35 35" />
                 <path d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40 M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
+            <!-- Flujos de fotones altamente controlados -->
             <g>
                 <path class="foton f1" d="M0 20 h40 l40 40 v50 l-30 30 h-50" />
                 <path class="foton f2" d="M200 30 v40 l-40 40 h-30 v50 l35 35" />
                 <path class="foton f3" d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40" />
                 <path class="foton f4" d="M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
+            <!-- Nodos con clases de animación diferenciadas (n1 y n2) para evitar sincronía -->
             <circle class="nodo n1" cx="80" cy="60" r="2.3" />
             <circle class="nodo n2" cx="120" cy="115" r="2.3" />
         </pattern>
@@ -174,7 +187,7 @@
         <div class="text-side">
             <h1 id="txt1" class="golden">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
             <p id="txt2">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
-            <p id="txt3">Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que offers fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
+            <p id="txt3">Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
             <p id="txt4">Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
         </div>
         <div class="image-side"><img src="images/cajas.jpg" alt="Cajas de producto Trulink"></div>
