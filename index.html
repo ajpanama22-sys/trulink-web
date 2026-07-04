@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* FONDO DE CIRCUITOS PREMIUM: REDUCIDO UN 80% EN INTENSIDAD Y FRECUENCIA */
+        /* FONDO DE CIRCUITOS PREMIUM */
         .circuito-bg {
             position: fixed;
             top: 0;
@@ -32,14 +32,12 @@
             stroke-linejoin: round;
             fill: none;
         }
-        /* Líneas base estáticas muy sutiles */
         .base-path { stroke-opacity: 0.14; }
         
-        /* Flujos de fotones (Ajustados con 80% menos de presencia) */
         .foton {
             stroke-opacity: 0;
             stroke: #d4af37;
-            stroke-dasharray: 20 800; /* Destellos mucho más cortos y distanciados */
+            stroke-dasharray: 20 800;
             animation: viajarFoton linear infinite;
         }
         .f1 { animation-duration: 12s; animation-delay: 0s; }
@@ -47,19 +45,17 @@
         .f3 { animation-duration: 14s; animation-delay: 2s; }
         .f4 { animation-duration: 18s; animation-delay: 7s; }
 
-        /* Rayos dorados sobre el patrón (Atenuados un 80% en opacidad y tamaño) */
         .rayo-linea {
             stroke: #d4af37;
             stroke-width: 1.3; 
             stroke-opacity: 0;
-            stroke-dasharray: 30 700; /* Mayor espacio muerto entre impulsos */
+            stroke-dasharray: 30 700;
             filter: drop-shadow(0 0 2px #d4af37);
             animation: correrRayoCircuito linear infinite;
         }
         .r1 { animation-duration: 9s; animation-delay: 1s; }
         .r2 { animation-duration: 11s; animation-delay: 4s; animation-direction: reverse; }
 
-        /* Nodo terminal sutil */
         .nodo {
             fill: #d4af37;
             fill-opacity: 0.05;
@@ -70,14 +66,14 @@
 
         @keyframes viajarFoton {
             0% { opacity: 0; stroke-dashoffset: 820; filter: drop-shadow(0 0 1px #d4af37); }
-            10% { opacity: 0.15; } /* Opacidad reducida drásticamente */
+            10% { opacity: 0.15; }
             90% { opacity: 0.15; }
             100% { opacity: 0; stroke-dashoffset: -820; filter: drop-shadow(0 0 2px #d4af37); }
         }
 
         @keyframes correrRayoCircuito {
             0% { stroke-dashoffset: 730; stroke-opacity: 0; }
-            15% { stroke-opacity: 0.18; } /* Opacidad máxima suavizada */
+            15% { stroke-opacity: 0.18; }
             85% { stroke-opacity: 0.18; }
             100% { stroke-dashoffset: -730; stroke-opacity: 0; }
         }
@@ -87,8 +83,78 @@
             45% { fill-opacity: 0.3; r: 2.8; filter: drop-shadow(0 0 2px #d4af37); }
             90%, 100% { fill-opacity: 0.03; r: 2.2; filter: none; }
         }
-        /* FIN SISTEMA DE FONDO */
 
+        /* NUEVO EFECTO PREMIUM IMÁGENES */
+        .img-container {
+            position: relative;
+            display: inline-block;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .img-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
+            border-radius: 8px;
+        }
+
+        .img-container:hover img {
+            transform: rotateY(15deg);
+        }
+
+        .lightning-frame {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .img-container:hover .lightning-frame {
+            opacity: 1;
+        }
+
+        .lightning-frame::before {
+            content: "";
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            clip-path: inset(0 100% 100% 0);
+            animation: lightningTravel 1.5s linear forwards;
+        }
+
+        @keyframes lightningTravel {
+            0% { clip-path: inset(0 100% 98% 0); }
+            25% { clip-path: inset(0 0 98% 0); }
+            50% { clip-path: inset(0 0 0 0); }
+            75% { clip-path: inset(98% 0 0 0); }
+            100% { clip-path: inset(98% 0 0 100%); }
+        }
+
+        .glow-burst {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(212,175,55,0.8) 0%, transparent 70%);
+            opacity: 0;
+        }
+
+        .img-container:hover .glow-burst {
+            animation: burstGlow 0.5s ease-out 1.5s forwards;
+        }
+
+        @keyframes burstGlow {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: scale(1.2); }
+        }
+
+        /* ESTRUCTURA ORIGINAL */
         .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
         .golden { color: #d4af37; }
@@ -100,39 +166,9 @@
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
         .image-side { flex: 1; display: flex; justify-content: center; }
-        .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; transition: box-shadow 0.5s; }
-        .image-side img:hover { box-shadow: 0 0 15px #d4af37; }
-        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
         .solucion-item { text-align: center; }
         .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
-        
-        .img-wrapper { position: relative; width: 100%; overflow: visible; cursor: pointer; perspective: 1000px; border-radius: 8px; }
-        .solucion-item img { width: 100%; display: block; border: 1px solid #333; border-radius: 8px; background: #fff; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
-        
-        .rayo-svg { position: absolute; top: -2px; left: -2px; width: calc(100% + 4px); height: calc(100% + 4px); pointer-events: none; z-index: 10; }
-        .rayo-svg rect { width: 100%; height: 100%; rx: 8px; ry: 8px; fill: none; stroke: #d4af37; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 800; stroke-dashoffset: 800; opacity: 0; }
-        
-        .destello { position: absolute; left: -2px; bottom: -2px; width: 20px; height: 20px; background: radial-gradient(circle, #fff 10%, #d4af37 60%, transparent 100%); border-radius: 50%; box-shadow: 0 0 20px 5px #d4af37; opacity: 0; pointer-events: none; z-index: 11; transform: translate(-35%, 35%) scale(0); }
-
-        .img-wrapper.animating img { animation: girar3D 0.9s ease-in-out forwards; }
-        .img-wrapper.animating .rayo-svg rect { animation: correrRayo 1.4s linear 0.9s forwards; }
-        .img-wrapper.animating .destello { animation: estallidoLuz 0.5s ease-out 2.3s forwards; }
-
-        @keyframes girar3D {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-        @keyframes correrRayo {
-            0% { opacity: 1; stroke-dashoffset: 800; }
-            100% { opacity: 1; stroke-dashoffset: 0; }
-        }
-        @keyframes estallidoLuz {
-            0% { opacity: 0; transform: translate(-35%, 35%) scale(0); }
-            50% { opacity: 1; transform: translate(-35%, 35%) scale(3); filter: brightness(1.5); }
-            100% { opacity: 0; transform: translate(-35%, 35%) scale(1); }
-        }
-
         .btn-download { display: inline-block; padding: 15px 25px; background-color: transparent; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; transition: 0.3s; font-weight: bold; margin: 10px; }
         .btn-download:hover { background-color: #d4af37; color: #000; }
         .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
@@ -143,16 +179,11 @@
         button:hover { background: #b8962d; }
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: rgba(0, 0, 0, 0.9); }
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
-        .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
-        
-        /* Animaciones scroll */
+        .social-icons a { width: 50px; height: 50px; }
+        .social-icons a img { width: 100%; height: 100%; object-fit: contain; }
         .fade-in { opacity: 0; transition: opacity 1s ease-in; }
         .fade-in.visible { opacity: 1; }
-
-        @media (max-width: 768px) {
-            .flex-container { flex-direction: column; text-align: center; }
-            .image-side img { height: auto; }
-        }
+        @media (max-width: 768px) { .flex-container { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -182,7 +213,7 @@
 </svg>
 
 <header>
-    <img src="1766012249626-removebg-preview.png" class="logo" alt="Trulink Logo">
+    <div class="img-container"><img src="1766012249626-removebg-preview.png" class="logo" alt="Trulink Logo"><div class="lightning-frame"><div class="glow-burst"></div></div></div>
     <div class="header-address">
         <strong>TRULINK FIBER LLC</strong><br>
         5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US
@@ -194,19 +225,19 @@
     </select>
 </header>
 
-<div class="full-width-banner"><img src="images/bannert.jpg" alt="Trulink Fiber Banner"></div>
+<div class="full-width-banner"><div class="img-container"><img src="images/bannert.jpg" alt="Trulink Fiber Banner"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
 
 <section>
     <div class="flex-container">
         <div class="text-side">
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="images/logopw.png" alt="Logo" style="max-width: 200px;">
+                <div class="img-container"><img src="images/logopw.png" alt="Logo" style="max-width: 200px;"><div class="lightning-frame"><div class="glow-burst"></div></div></div>
             </div>
             <p id="txt2">SOMOS una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
             <p id="txt3">Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
             <p id="txt4">Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
         </div>
-        <div class="image-side"><img src="images/cajas.jpg" alt="Cajas de producto Trulink"></div>
+        <div class="image-side"><div class="img-container"><img src="images/cajas.jpg" alt="Cajas de producto Trulink"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
     </div>
 </section>
 
@@ -223,13 +254,13 @@
             </ul>
             <p id="txt8"><em>👉 Aunque aún está en desarrollo, el T‑FAP™ refleja nuestra visión de infraestructura eterna, sostenible y adaptada al futuro digital de la región.</em></p>
         </div>
-        <div class="image-side"><img src="images/tfab.jpg" alt="Tecnología T-FAP"></div>
+        <div class="image-side"><div class="img-container"><img src="images/tfab.jpg" alt="Tecnología T-FAP"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
     </div>
 </section>
 
 <section>
     <div class="flex-container">
-        <div class="image-side"><img src="images/1caja.jpg" alt="Cajas de fibra óptica 305m"></div>
+        <div class="image-side"><div class="img-container"><img src="images/1caja.jpg" alt="Cajas de fibra óptica 305m"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
         <div class="text-side">
             <h1 id="txt9" class="golden">Cajas de 305 m – Fibra Óptica para Interiores</h1>
             <p id="txt10">En TRULINK FIBER LLC hemos desarrollado un formato exclusivo que responde a las necesidades reales de instaladores y operadores: cajas de fibra óptica para interiores de 305 metros.</p>
@@ -255,19 +286,18 @@
     </div>
 </section>
 
-<!-- NUEVA SECCIÓN: Misión y Visión -->
 <section style="background-color: rgba(10, 10, 10, 0.5); border-top: 1px solid #d4af37; border-bottom: 1px solid #d4af37; backdrop-filter: blur(5px);">
     <h2 class="golden">Misión y Visión</h2>
     <div class="flex-container">
         <div class="text-side fade-in">
             <h3 class="golden">Misión</h3>
-            <p>SOMOS una marca disruptiva que humaniza el negocio de la conectividad. Nuestra misión es cruzar fronteras para conectar personas y empresas de manera fácil y accesible, eliminando las barreras de precios y logística. Aspiramos a llegar donde otros no han llegado, porque vemos más allá de los números: vemos personas, comunidades y realidades que merecen soluciones tecnológicas inclusivas.</p>
-            <div class="image-side"><img src="images/mision.png" alt="Misión Trulink"></div>
+            <p>SOMOS una marca disruptiva que humaniza el negocio de la conectividad. Nuestra misión es cruzar fronteras para conectar personas y empresas de manera fácil y accesible, eliminando las barreras de precios y logística.</p>
+            <div class="image-side"><div class="img-container"><img src="images/mision.png" alt="Misión Trulink"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
         </div>
         <div class="text-side fade-in">
             <h3 class="golden">Visión</h3>
-            <p>Ser el referente latinoamericano en ingeniería de conectividad inteligente, liderando la manufactura local de soluciones de fibra óptica y herrajes sostenibles. Aspiramos a consolidar un hub regional en Panamá que impulse la innovación, la transferencia de conocimiento y la independencia tecnológica, posicionando a Trulink como socio estratégico de gobiernos, operadores y comunidades en la transformación digital.</p>
-            <div class="image-side"><img src="images/vision.png" alt="Visión Trulink"></div>
+            <p>Ser el referente latinoamericano en ingeniería de conectividad inteligente, liderando la manufactura local de soluciones de fibra óptica y herrajes sostenibles.</p>
+            <div class="image-side"><div class="img-container"><img src="images/vision.png" alt="Visión Trulink"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
         </div>
     </div>
 </section>
@@ -275,11 +305,11 @@
 <section>
     <h2 id="txt13" class="golden">Nuestras Soluciones</h2>
     <div class="grid">
-        <div class="solucion-item"><h3 id="txt14">ASU</h3><div class="img-wrapper"><img src="images/asu.jpg" alt="ASU"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
-        <div class="solucion-item"><h3 id="txt15">ADSS</h3><div class="img-wrapper"><img src="images/adss.jpg" alt="ADSS"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
-        <div class="solucion-item"><h3 id="txt16">DROP</h3><div class="img-wrapper"><img src="images/drop.jpg" alt="Drop"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
-        <div class="solucion-item"><h3 id="txt17">HERRAJES</h3><div class="img-wrapper"><img src="images/herraje.jpg" alt="Herrajes"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
-        <div class="solucion-item"><h3 id="txt18">ACCESORIOS</h3><div class="img-wrapper"><img src="images/accesorios.jpg" alt="Accesorios"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
+        <div class="solucion-item"><h3 id="txt14">ASU</h3><div class="img-container"><img src="images/asu.jpg" alt="ASU"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
+        <div class="solucion-item"><h3 id="txt15">ADSS</h3><div class="img-container"><img src="images/adss.jpg" alt="ADSS"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
+        <div class="solucion-item"><h3 id="txt16">DROP</h3><div class="img-container"><img src="images/drop.jpg" alt="Drop"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
+        <div class="solucion-item"><h3 id="txt17">HERRAJES</h3><div class="img-container"><img src="images/herraje.jpg" alt="Herrajes"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
+        <div class="solucion-item"><h3 id="txt18">ACCESORIOS</h3><div class="img-container"><img src="images/accesorios.jpg" alt="Accesorios"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
     </div>
 </section>
 
@@ -292,13 +322,10 @@
     </div>
 </section>
 
-<div class="full-width-banner"><img src="images/bm1.jpg" alt="Banner Adicional"></div>
+<div class="full-width-banner"><div class="img-container"><img src="images/bm1.jpg" alt="Banner Adicional"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
 
 <section>
     <h2 id="txt23" class="golden">Contacto e Inversionistas</h2>
-    <p id="txt24" style="color: #ccc; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Si desea contactarnos para solicitar información comercial o explorar oportunidades de inversión, por favor complete el siguiente formulario. Nuestro equipo se pondrá en contacto con usted a la brevedad.
-    </p>
     <form action="https://formspree.io/f/mgojnnep" method="POST">
         <input id="txt25" type="text" name="name" placeholder="Nombre completo" required>
         <input id="txt26" type="email" name="email" placeholder="Correo electrónico" required>
@@ -312,31 +339,17 @@
 
 <footer>
     <div class="social-icons">
-        <a href="https://www.linkedin.com/company/trulinkfiber/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
-        <a href="https://www.instagram.com/trulinkfiber" target="_blank"><img src="images/instagram.jpg" alt="Instagram"></a>
+        <a href="https://www.linkedin.com/company/trulinkfiber/" target="_blank"><div class="img-container"><img src="images/linkedin.jpg" alt="LinkedIn"><div class="lightning-frame"><div class="glow-burst"></div></div></div></a>
+        <a href="https://www.instagram.com/trulinkfiber" target="_blank"><div class="img-container"><img src="images/instagram.jpg" alt="Instagram"><div class="lightning-frame"><div class="glow-burst"></div></div></div></a>
     </div>
     <p id="txt32">&copy; 2026 Trulink Fiber LLC. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-    // Intersection Observer para animaciones fade-in
-    const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, observerOptions);
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    document.querySelectorAll('.img-wrapper').forEach(wrapper => {
-        wrapper.addEventListener('click', () => {
-            if (wrapper.classList.contains('animating')) return;
-            wrapper.classList.add('animating');
-            setTimeout(() => {
-                wrapper.classList.remove('animating');
-            }, 2800);
-        });
-    });
 
     const translations = {
         en: {
@@ -353,15 +366,10 @@
             txt12: "<em>👉 This exclusive format reinforces our vision of smart connectivity and disruptive logistics.</em>",
             txt13: "Our Solutions", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "HARDWARE", txt18: "ACCESSORIES",
             txt19: "Technical Catalogs", txt20: "Accessories Catalog", txt21: "Cables Catalog", txt22: "Hardware Catalog",
-            txt23: "Contact and Investors", 
-            txt24: "If you wish to contact us to request commercial information or explore investment opportunities, please complete the following form. Our team will contact you shortly.",
+            txt23: "Contact and Investors", txt24: "If you wish to contact us to request commercial information or explore investment opportunities, please complete the following form. Our team will contact you shortly.",
             txt25: "Full Name", txt26: "Email", txt27: "Phone", txt28: "Company", txt29: "Country", txt30: "Message or reason for inquiry", txt31: "Send Request", txt32: "© 2026 Trulink Fiber LLC. All rights reserved.",
-            txt33: "Strategic Regional Presence",
-            txt34: "TRULINK FIBER LLC has a robust logistics and operational hub designed to ensure efficiency in the supply of connectivity infrastructure in the region's most dynamic markets.",
-            "reg1-t": "Panama", "reg1-d": "Central Logistics Hub",
-            "reg2-t": "Central America", "reg2-d": "Total Coverage",
-            "reg3-t": "Caribbean", "reg3-d": "Agile Supply",
-            "reg4-t": "Colombia", "reg4-d": "Strategic Presence"
+            txt33: "Strategic Regional Presence", txt34: "TRULINK FIBER LLC has a robust logistics and operational hub designed to ensure efficiency in the supply of connectivity infrastructure in the region's most dynamic markets.",
+            "reg1-t": "Panama", "reg1-d": "Central Logistics Hub", "reg2-t": "Central America", "reg2-d": "Total Coverage", "reg3-t": "Caribbean", "reg3-d": "Agile Supply", "reg4-t": "Colombia", "reg4-d": "Strategic Presence"
         },
         ar: {
             txt2: "نحن شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
@@ -369,23 +377,18 @@
             txt4: "إنتاج مباشر في شنتشن، الصين، وفقاً لمعايير ISO، مع توزيع في جميع أنحاء منطقة أمريكا اللاتينية.",
             txt5: "T‑FAP™ – منصة تثبيت وصلات Trulink",
             txt6: "T‑FAP™ هو ابتكار TRULINK FIBER LLC قيد التطوير لتحويل البنية التحتية للاتصالات في أمريكا اللاتينية.",
-            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ, مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
+            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li><li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li><li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li><li><strong>الاستدامة:</strong> تحل محل الفولاذ, مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
             txt8: "<em>👉 على الرغم من أنه لا يزال قيد التطوير، فإن T‑FAP™ يعكس رؤيتنا للبنية التحتية الأبدية والمستدامة والمكيفة مع المستقبل الرقمي للمنطقة.</em>",
             txt9: "صناديق 305 متر – ألياف بصرية داخلية",
             txt10: "في TRULINK FIBER LLC، قمنا بتطوير تنسيق حصري يستجيب للاحتياجات الحقيقية للفنيين والمشغلين: صناديق ألياف بصرية داخلية بطول 305 أمتار.",
-            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li>\n<li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li>\n<li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li>\n<li><strong>تصنيع مباشر في شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
+            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li><li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li><li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li><li><strong>تصنيع مباشر في شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
             txt12: "<em>👉 هذا التنسيق الحصري يعزز رؤيتنا للاتصال الذكي والخدمات اللوجستية المبتكرة.</em>",
             txt13: "حلولنا", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "أجهزة ربط", txt18: "ملحقات",
             txt19: "كتالوجات تقنية", txt20: "كتالوج الملحقات", txt21: "كتالوج الكابلات", txt22: "كتالوج أجهزة الربط",
-            txt23: "اتصل بنا والمستثمرون", 
-            txt24: "إذا كنت ترغب في الاتصال بنا لطلب معلومات تجارية أو استكشاف فرص الاستثمار، يرجى ملء النموذج التالي. سيتصل بك فريقنا في أقرب وقت.",
+            txt23: "اتصل بنا والمستثمرون", txt24: "إذا كنت ترغب في الاتصال بنا لطلب معلومات تجارية أو استكشاف فرص الاستثمار، يرجى ملء النموذج التالي. سيتصل بك فريقنا في أقرب وقت.",
             txt25: "الاسم الكامل", txt26: "البريد الإلكتروني", txt27: "هاتف", txt28: "شركة", txt29: "بلد", txt30: "رسالة أو سبب الاستفسار", txt31: "إرسال الطلب", txt32: "© 2026 Trulink Fiber LLC. جميع الحقوق محفوظة.",
-            txt33: "الحضور الإقليمي الاستراتيجي",
-            txt34: "تمتلك TRULINK FIBER LLC مركزاً لوجستياً وتشغيلياً قوياً مصمماً لضمان الكفاءة في توريد البنية التحتية للاتصال في أكثر الأسواق ديناميكية في المنطقة.",
-            "reg1-t": "بنما", "reg1-d": "مركز لوجستي مركزي",
-            "reg2-t": "أمريكا الوسطى", "reg2-d": "تغطية كاملة",
-            "reg3-t": "الكاريبي", "reg3-d": "إمداد سريع",
-            "reg4-t": "كولومبيا", "reg4-d": "تواجد استراتيجي"
+            txt33: "الحضور الإقليمي الاستراتيجي", txt34: "تمتلك TRULINK FIBER LLC مركزاً لوجستياً وتشغيلياً قوياً مصمماً لضمان الكفاءة في توريد البنية التحتية للاتصال في أكثر الأسواق ديناميكية في المنطقة.",
+            "reg1-t": "بنما", "reg1-d": "مركز لوجستي مركزي", "reg2-t": "أمريكا الوسطى", "reg2-d": "تغطية كاملة", "reg3-t": "الكاريبي", "reg3-d": "إمداد سريع", "reg4-t": "كولومبيا", "reg4-d": "تواجد استراتيجي"
         }
     };
 
@@ -396,8 +399,8 @@
         for (const id in translations[lang]) {
             const el = document.getElementById(id);
             if (el) {
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { el.placeholder = translations[lang][id]; }
-                else { el.innerHTML = translations[lang][id]; }
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = translations[lang][id];
+                else el.innerHTML = translations[lang][id];
             }
         }
     }
