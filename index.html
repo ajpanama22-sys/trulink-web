@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* FONDO DE CIRCUITOS PREMIUM: RAYOS DINÁMICOS SOBRE LAS LÍNEAS */
+        /* FONDO DE CIRCUITOS PREMIUM: REDUCIDO UN 80% EN INTENSIDAD Y FRECUENCIA */
         .circuito-bg {
             position: fixed;
             top: 0;
@@ -35,60 +35,57 @@
         /* Líneas base estáticas muy sutiles */
         .base-path { stroke-opacity: 0.14; }
         
-        /* Flujos de fotones (impulsos largos originales) */
+        /* Flujos de fotones (Ajustados con 80% menos de presencia) */
         .foton {
             stroke-opacity: 0;
             stroke: #d4af37;
-            stroke-dasharray: 40 320; 
+            stroke-dasharray: 20 800; /* Destellos mucho más cortos y distanciados */
             animation: viajarFoton linear infinite;
         }
-        .f1 { animation-duration: 8s; animation-delay: 0s; }
-        .f2 { animation-duration: 10s; animation-delay: 4s; animation-direction: reverse; }
-        .f3 { animation-duration: 9s; animation-delay: 2s; }
-        .f4 { animation-duration: 12s; animation-delay: 6s; }
+        .f1 { animation-duration: 12s; animation-delay: 0s; }
+        .f2 { animation-duration: 15s; animation-delay: 5s; animation-direction: reverse; }
+        .f3 { animation-duration: 14s; animation-delay: 2s; }
+        .f4 { animation-duration: 18s; animation-delay: 7s; }
 
-        /* NUEVO: Rayos dorados intensos que cruzan exactamente encima de las líneas del patrón */
+        /* Rayos dorados sobre el patrón (Atenuados un 80% en opacidad y tamaño) */
         .rayo-linea {
             stroke: #d4af37;
-            stroke-width: 1.6; /* Ligeramente más grueso para resaltar */
+            stroke-width: 1.3; 
             stroke-opacity: 0;
-            stroke-dasharray: 60 200; /* Un rayo más definido y corto */
-            filter: drop-shadow(0 0 4px #d4af37);
+            stroke-dasharray: 30 700; /* Mayor espacio muerto entre impulsos */
+            filter: drop-shadow(0 0 2px #d4af37);
             animation: correrRayoCircuito linear infinite;
         }
-        /* Tiempos y retrasos totalmente asíncronos para los rayos */
-        .r1 { animation-duration: 5s; animation-delay: 1s; }
-        .r2 { animation-duration: 7s; animation-delay: 3.5s; animation-direction: reverse; }
+        .r1 { animation-duration: 9s; animation-delay: 1s; }
+        .r2 { animation-duration: 11s; animation-delay: 4s; animation-direction: reverse; }
 
-        /* Nodo terminal dorado individual (reducido a la mitad) */
+        /* Nodo terminal sutil */
         .nodo {
             fill: #d4af37;
-            fill-opacity: 0.1;
+            fill-opacity: 0.05;
             transform-origin: center;
-            animation: brillarNodo 5s ease-in-out infinite alternate; 
+            animation: brillarNodo 6s ease-in-out infinite alternate; 
             animation-delay: 0.5s;
         }
 
         @keyframes viajarFoton {
-            0% { opacity: 0; stroke-dashoffset: 360; filter: drop-shadow(0 0 1px #d4af37); }
-            10% { opacity: 0.75; }
-            90% { opacity: 0.75; }
-            100% { opacity: 0; stroke-dashoffset: -360; filter: drop-shadow(0 0 3px #d4af37); }
+            0% { opacity: 0; stroke-dashoffset: 820; filter: drop-shadow(0 0 1px #d4af37); }
+            10% { opacity: 0.15; } /* Opacidad reducida drásticamente */
+            90% { opacity: 0.15; }
+            100% { opacity: 0; stroke-dashoffset: -820; filter: drop-shadow(0 0 2px #d4af37); }
         }
 
-        /* Animación para los nuevos rayos superiores */
         @keyframes correrRayoCircuito {
-            0% { stroke-dashoffset: 260; stroke-opacity: 0; }
-            15% { stroke-opacity: 0.9; }
-            85% { stroke-opacity: 0.9; }
-            100% { stroke-dashoffset: -260; stroke-opacity: 0; }
+            0% { stroke-dashoffset: 730; stroke-opacity: 0; }
+            15% { stroke-opacity: 0.18; } /* Opacidad máxima suavizada */
+            85% { stroke-opacity: 0.18; }
+            100% { stroke-dashoffset: -730; stroke-opacity: 0; }
         }
         
-        /* Animación del nodo restante */
         @keyframes brillarNodo {
-            0% { fill-opacity: 0.05; r: 2.2; filter: none; }
-            45% { fill-opacity: 0.85; r: 3.2; filter: drop-shadow(0 0 4px #d4af37); }
-            90%, 100% { fill-opacity: 0.1; r: 2.2; filter: none; }
+            0% { fill-opacity: 0.03; r: 2.2; filter: none; }
+            45% { fill-opacity: 0.3; r: 2.8; filter: drop-shadow(0 0 2px #d4af37); }
+            90%, 100% { fill-opacity: 0.03; r: 2.2; filter: none; }
         }
         /* FIN SISTEMA DE FONDO */
 
@@ -154,29 +151,24 @@
 </head>
 <body>
 
-<!-- CONTENEDOR DE CIRCUITO ACTUALIZADO CON RAYOS SUPERPUESTOS -->
 <svg class="circuito-bg">
     <defs>
         <pattern id="circuit-pattern" width="180" height="180" patternUnits="userSpaceOnUse" viewBox="0 0 200 200">
-            <!-- Capas Estáticas Base Doradas -->
             <g class="base-path">
                 <path d="M0 20 h40 l40 40 v50 l-30 30 h-50 M0 28 h36 l40 40 v50 l-30 30 h-46 M0 36 h32 l40 40 v50 l-30 30 h-42" />
                 <path d="M200 30 v40 l-40 40 h-30 v50 l35 35 M200 38 v36 l-40 40 h-30 v50 l35 35" />
                 <path d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40 M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
-            <!-- Flujos de fotones (Fondo original sutil) -->
             <g>
                 <path class="foton f1" d="M0 20 h40 l40 40 v50 l-30 30 h-50" />
                 <path class="foton f2" d="M200 30 v40 l-40 40 h-30 v50 l35 35" />
                 <path class="foton f3" d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40" />
                 <path class="foton f4" d="M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
-            <!-- NUEVOS RAYOS: Corren exactamente por encima de las líneas del patrón original -->
             <g>
                 <path class="rayo-linea r1" d="M0 28 h36 l40 40 v50 l-30 30 h-46" />
                 <path class="rayo-linea r2" d="M200 38 v36 l-40 40 h-30 v50 l35 35" />
             </g>
-            <!-- Un solo nodo brillante (reducido a la mitad para balance visual) -->
             <circle class="nodo" cx="80" cy="60" r="2.3" />
         </pattern>
     </defs>
@@ -340,16 +332,16 @@
         },
         ar: {
             txt1: "TRULINK FIBER LLC – هندسة الاتصال الذكي",
-            txt2: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة in حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
+            txt2: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
             txt3: "مع مقر رئيسي في الولايات المتحدة وعمليات لوجستية في بنما وأمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا، تتموضع TRULINK كمصنع وحيد يقدم الألياف الضوئية الداخلية في صناديق بطول 305 أمتار، وهو تنسيق مصمم لتحسين التركيب والنقل ومراقبة المخزون للمشاريع متوسطة الحجم.",
             txt4: "إنتاج مباشر في شنتشن، الصين، وفقاً لمعايير ISO، مع توزيع في جميع أنحاء منطقة أمريكا اللاتينية.",
             txt5: "T‑FAP™ – منصة تثبيت وصلات Trulink",
             txt6: "T‑FAP™ هو ابتكار TRULINK FIBER LLC قيد التطوير لتحويل البنية التحتية للاتصالات في أمريكا اللاتينية.",
-            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً in البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ, مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
+            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ, مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
             txt8: "<em>👉 على الرغم من أنه لا يزال قيد التطوير، فإن T‑FAP™ يعكس رؤيتنا للبنية التحتية الأبدية والمستدامة والمكيفة مع المستقبل الرقمي للمنطقة.</em>",
             txt9: "صناديق 305 متر – ألياف بصرية داخلية",
             txt10: "في TRULINK FIBER LLC، قمنا بتطوير تنسيق حصري يستجيب للاحتياجات الحقيقية للفنيين والمشغلين: صناديق ألياف بصرية داخلية بطول 305 أمتار.",
-            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li>\n<li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li>\n<li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li>\n<li><strong>تصنيع مباشر in شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
+            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li>\n<li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li>\n<li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li>\n<li><strong>تصنيع مباشر في شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
             txt12: "<em>👉 هذا التنسيق الحصري يعزز رؤيتنا للاتصال الذكي والخدمات اللوجستية المبتكرة.</em>",
             txt13: "حلولنا", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "أجهزة ربط", txt18: "ملحقات",
             txt19: "كتالوجات تقنية", txt20: "كتالوج الملحقات", txt21: "كتالوج الكابلات", txt22: "كتالوج أجهزة الربط",
