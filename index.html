@@ -207,7 +207,16 @@
         .social-icons a img { width: 100%; height: 100%; object-fit: contain; }
         .fade-in { opacity: 0; transition: opacity 1s ease-in; }
         .fade-in.visible { opacity: 1; }
-        @media (max-width: 768px) { .flex-container { flex-direction: column; text-align: center; } }
+        
+        /* Ajustes para Mobile */
+        @media (max-width: 768px) { 
+            .flex-container { flex-direction: column; text-align: center; }
+            header { flex-direction: column; gap: 15px; padding: 15px; }
+            .header-address { order: 1; }
+            .logo-static { order: 2; }
+            .b2b-button { order: 3; }
+            #lang-selector { position: absolute; top: 15px; right: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -237,12 +246,12 @@
 </svg>
 
 <header>
-    <img src="1766012249626-removebg-preview.png" class="logo-static" alt="Trulink Logo">
-    <a href="https://portal.trulinkfiber.org/" class="b2b-button">B2B PORTAL</a>
     <div class="header-address">
         <strong>TRULINK FIBER LLC</strong><br>
         5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US
     </div>
+    <img src="1766012249626-removebg-preview.png" class="logo-static" alt="Trulink Logo">
+    <a href="https://portal.trulinkfiber.org/" class="b2b-button">B2B PORTAL</a>
     <select id="lang-selector" onchange="changeLanguage()">
         <option value="es">Español</option>
         <option value="en">English</option>
