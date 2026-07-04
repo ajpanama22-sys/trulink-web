@@ -100,7 +100,8 @@
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
         .image-side { flex: 1; display: flex; justify-content: center; }
-        .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; }
+        .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; transition: box-shadow 0.5s; }
+        .image-side img:hover { box-shadow: 0 0 15px #d4af37; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
         .solucion-item { text-align: center; }
@@ -143,6 +144,11 @@
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: rgba(0, 0, 0, 0.9); }
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
         .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
+        
+        /* Animaciones scroll */
+        .fade-in { opacity: 0; transition: opacity 1s ease-in; }
+        .fade-in.visible { opacity: 1; }
+
         @media (max-width: 768px) {
             .flex-container { flex-direction: column; text-align: center; }
             .image-side img { height: auto; }
@@ -249,6 +255,23 @@
     </div>
 </section>
 
+<!-- NUEVA SECCIÓN: Misión y Visión -->
+<section style="background-color: rgba(10, 10, 10, 0.5); border-top: 1px solid #d4af37; border-bottom: 1px solid #d4af37; backdrop-filter: blur(5px);">
+    <h2 class="golden">Misión y Visión</h2>
+    <div class="flex-container">
+        <div class="text-side fade-in">
+            <h3 class="golden">Misión</h3>
+            <p>SOMOS una marca disruptiva que humaniza el negocio de la conectividad. Nuestra misión es cruzar fronteras para conectar personas y empresas de manera fácil y accesible, eliminando las barreras de precios y logística. Aspiramos a llegar donde otros no han llegado, porque vemos más allá de los números: vemos personas, comunidades y realidades que merecen soluciones tecnológicas inclusivas.</p>
+            <div class="image-side"><img src="images/mision.png" alt="Misión Trulink"></div>
+        </div>
+        <div class="text-side fade-in">
+            <h3 class="golden">Visión</h3>
+            <p>Ser el referente latinoamericano en ingeniería de conectividad inteligente, liderando la manufactura local de soluciones de fibra óptica y herrajes sostenibles. Aspiramos a consolidar un hub regional en Panamá que impulse la innovación, la transferencia de conocimiento y la independencia tecnológica, posicionando a Trulink como socio estratégico de gobiernos, operadores y comunidades en la transformación digital.</p>
+            <div class="image-side"><img src="images/vision.png" alt="Visión Trulink"></div>
+        </div>
+    </div>
+</section>
+
 <section>
     <h2 id="txt13" class="golden">Nuestras Soluciones</h2>
     <div class="grid">
@@ -296,6 +319,15 @@
 </footer>
 
 <script>
+    // Intersection Observer para animaciones fade-in
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
     document.querySelectorAll('.img-wrapper').forEach(wrapper => {
         wrapper.addEventListener('click', () => {
             if (wrapper.classList.contains('animating')) return;
