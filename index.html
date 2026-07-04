@@ -159,7 +159,7 @@
         .full-width-banner img { width: 100%; height: auto; display: block; }
         .golden { color: #d4af37; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); }
-        .logo { height: 80px; width: auto; }
+        .logo-static { height: 50px; width: auto; display: block; }
         .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
         #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 5px; cursor: pointer; }
         section { padding: 60px 5%; text-align: center; background-color: transparent; }
@@ -213,7 +213,7 @@
 </svg>
 
 <header>
-    <div class="img-container"><img src="1766012249626-removebg-preview.png" class="logo" alt="Trulink Logo"><div class="lightning-frame"><div class="glow-burst"></div></div></div>
+    <img src="1766012249626-removebg-preview.png" class="logo-static" alt="Trulink Logo">
     <div class="header-address">
         <strong>TRULINK FIBER LLC</strong><br>
         5203 Juan Tabo Blvd Ne, Albuquerque, NM, 87111-2691, US
@@ -290,13 +290,13 @@
     <h2 class="golden">Misión y Visión</h2>
     <div class="flex-container">
         <div class="text-side fade-in">
-            <h3 class="golden">Misión</h3>
-            <p>SOMOS una marca disruptiva que humaniza el negocio de la conectividad. Nuestra misión es cruzar fronteras para conectar personas y empresas de manera fácil y accesible, eliminando las barreras de precios y logística.</p>
+            <h3 id="m-tit" class="golden">Misión</h3>
+            <p id="m-txt">SOMOS una marca disruptiva que humaniza el negocio de la conectividad. Nuestra misión es cruzar fronteras para conectar personas y empresas de manera fácil y accesible, eliminando las barreras de precios y logística. Nos aspiramos a llegar donde otros no han llegado, porque vemos más allá de los números: vemos personas, comunidades y realidades que merecen soluciones tecnológicas inclusivas.</p>
             <div class="image-side"><div class="img-container"><img src="images/mision.png" alt="Misión Trulink"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
         </div>
         <div class="text-side fade-in">
-            <h3 class="golden">Visión</h3>
-            <p>Ser el referente latinoamericano en ingeniería de conectividad inteligente, liderando la manufactura local de soluciones de fibra óptica y herrajes sostenibles.</p>
+            <h3 id="v-tit" class="golden">Visión</h3>
+            <p id="v-txt">Ser el referente latinoamericano en ingeniería de conectividad inteligente, liderando la manufactura local de soluciones de fibra óptica y herrajes sostenibles. Aspiramos a consolidar un hub regional en Panamá que impulse la innovación, la transferencia de conocimiento y la independencia tecnológica, posicionando a Trulink como un socio estratégico para gobiernos, operadores y comunidades en la transformación digital.</p>
             <div class="image-side"><div class="img-container"><img src="images/vision.png" alt="Visión Trulink"><div class="lightning-frame"><div class="glow-burst"></div></div></div></div>
         </div>
     </div>
@@ -366,10 +366,12 @@
             txt12: "<em>👉 This exclusive format reinforces our vision of smart connectivity and disruptive logistics.</em>",
             txt13: "Our Solutions", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "HARDWARE", txt18: "ACCESSORIES",
             txt19: "Technical Catalogs", txt20: "Accessories Catalog", txt21: "Cables Catalog", txt22: "Hardware Catalog",
-            txt23: "Contact and Investors", txt24: "If you wish to contact us to request commercial information or explore investment opportunities, please complete the following form. Our team will contact you shortly.",
+            txt23: "Contact and Investors",
             txt25: "Full Name", txt26: "Email", txt27: "Phone", txt28: "Company", txt29: "Country", txt30: "Message or reason for inquiry", txt31: "Send Request", txt32: "© 2026 Trulink Fiber LLC. All rights reserved.",
             txt33: "Strategic Regional Presence", txt34: "TRULINK FIBER LLC has a robust logistics and operational hub designed to ensure efficiency in the supply of connectivity infrastructure in the region's most dynamic markets.",
-            "reg1-t": "Panama", "reg1-d": "Central Logistics Hub", "reg2-t": "Central America", "reg2-d": "Total Coverage", "reg3-t": "Caribbean", "reg3-d": "Agile Supply", "reg4-t": "Colombia", "reg4-d": "Strategic Presence"
+            "reg1-t": "Panama", "reg1-d": "Central Logistics Hub", "reg2-t": "Central America", "reg2-d": "Total Coverage", "reg3-t": "Caribbean", "reg3-d": "Agile Supply", "reg4-t": "Colombia", "reg4-d": "Strategic Presence",
+            "m-tit": "Mission", "m-txt": "WE ARE a disruptive brand that humanizes the connectivity business. Our mission is to cross borders to connect people and companies easily and accessibly, eliminating price and logistics barriers. We aspire to reach where others have not, because we see beyond numbers: we see people, communities, and realities that deserve inclusive technological solutions.",
+            "v-tit": "Vision", "v-txt": "To be the Latin American benchmark in intelligent connectivity engineering, leading local manufacturing of fiber optic solutions and sustainable fittings. We aspire to consolidate a regional hub in Panama that drives innovation, knowledge transfer, and technological independence, positioning Trulink as a strategic partner for governments, operators, and communities in digital transformation."
         },
         ar: {
             txt2: "نحن شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
@@ -385,10 +387,12 @@
             txt12: "<em>👉 هذا التنسيق الحصري يعزز رؤيتنا للاتصال الذكي والخدمات اللوجستية المبتكرة.</em>",
             txt13: "حلولنا", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "أجهزة ربط", txt18: "ملحقات",
             txt19: "كتالوجات تقنية", txt20: "كتالوج الملحقات", txt21: "كتالوج الكابلات", txt22: "كتالوج أجهزة الربط",
-            txt23: "اتصل بنا والمستثمرون", txt24: "إذا كنت ترغب في الاتصال بنا لطلب معلومات تجارية أو استكشاف فرص الاستثمار، يرجى ملء النموذج التالي. سيتصل بك فريقنا في أقرب وقت.",
+            txt23: "اتصل بنا والمستثمرون",
             txt25: "الاسم الكامل", txt26: "البريد الإلكتروني", txt27: "هاتف", txt28: "شركة", txt29: "بلد", txt30: "رسالة أو سبب الاستفسار", txt31: "إرسال الطلب", txt32: "© 2026 Trulink Fiber LLC. جميع الحقوق محفوظة.",
             txt33: "الحضور الإقليمي الاستراتيجي", txt34: "تمتلك TRULINK FIBER LLC مركزاً لوجستياً وتشغيلياً قوياً مصمماً لضمان الكفاءة في توريد البنية التحتية للاتصال في أكثر الأسواق ديناميكية في المنطقة.",
-            "reg1-t": "بنما", "reg1-d": "مركز لوجستي مركزي", "reg2-t": "أمريكا الوسطى", "reg2-d": "تغطية كاملة", "reg3-t": "الكاريبي", "reg3-d": "إمداد سريع", "reg4-t": "كولومبيا", "reg4-d": "تواجد استراتيجي"
+            "reg1-t": "بنما", "reg1-d": "مركز لوجستي مركزي", "reg2-t": "أمريكا الوسطى", "reg2-d": "تغطية كاملة", "reg3-t": "الكاريبي", "reg3-d": "إمداد سريع", "reg4-t": "كولومبيا", "reg4-d": "تواجد استراتيجي",
+            "m-tit": "المهمة", "m-txt": "نحن علامة تجارية مبتكرة تعطي الطابع الإنساني لأعمال الاتصال. مهمتنا هي عبور الحدود لربط الأشخاص والشركات بسهولة ويسر، وإزالة حواجز الأسعار واللوجستيات. نطمح للوصول إلى أماكن لم يصل إليها الآخرون، لأننا نرى ما وراء الأرقام: نرى أشخاصًا ومجتمعات وحقائق تستحق حلولًا تكنولوجية شاملة.",
+            "v-tit": "الرؤية", "v-txt": "أن نكون المرجع في أمريكا اللاتينية في هندسة الاتصال الذكي، من خلال قيادة التصنيع المحلي لحلول الألياف الضوئية والملحقات المستدامة. نطمح إلى إنشاء مركز إقليمي في بنما يعزز الابتكار ونقل المعرفة والاستقلال التكنولوجي، مما يضع Trulink كشريك استراتيجي للحكومات والمشغلين والمجتمعات في التحول الرقمي."
         }
     };
 
