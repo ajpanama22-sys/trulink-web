@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* FONDO DE CIRCUITOS: Reducción del 60% en la densidad de la cuadrícula trasera */
+        /* FONDO DE CIRCUITOS PREMIUM: RAYOS DINÁMICOS SOBRE LAS LÍNEAS */
         .circuito-bg {
             position: fixed;
             top: 0;
@@ -32,71 +32,73 @@
             stroke-linejoin: round;
             fill: none;
         }
-        .base-path { stroke-opacity: 0.12; }
+        /* Líneas base estáticas muy sutiles */
+        .base-path { stroke-opacity: 0.14; }
         
+        /* Flujos de fotones (impulsos largos originales) */
+        .foton {
+            stroke-opacity: 0;
+            stroke: #d4af37;
+            stroke-dasharray: 40 320; 
+            animation: viajarFoton linear infinite;
+        }
+        .f1 { animation-duration: 8s; animation-delay: 0s; }
+        .f2 { animation-duration: 10s; animation-delay: 4s; animation-direction: reverse; }
+        .f3 { animation-duration: 9s; animation-delay: 2s; }
+        .f4 { animation-duration: 12s; animation-delay: 6s; }
+
+        /* NUEVO: Rayos dorados intensos que cruzan exactamente encima de las líneas del patrón */
         .rayo-linea {
             stroke: #d4af37;
-            stroke-width: 1.5;
+            stroke-width: 1.6; /* Ligeramente más grueso para resaltar */
             stroke-opacity: 0;
-            stroke-dasharray: 60 300; 
-            filter: drop-shadow(0 0 3px #d4af37);
-            animation: viajeEstela 6s linear infinite;
+            stroke-dasharray: 60 200; /* Un rayo más definido y corto */
+            filter: drop-shadow(0 0 4px #d4af37);
+            animation: correrRayoCircuito linear infinite;
         }
+        /* Tiempos y retrasos totalmente asíncronos para los rayos */
+        .r1 { animation-duration: 5s; animation-delay: 1s; }
+        .r2 { animation-duration: 7s; animation-delay: 3.5s; animation-direction: reverse; }
 
-        .foton-cabeza {
-            fill: #ffffff;
-            filter: drop-shadow(0 0 5px #d4af37) drop-shadow(0 0 2px #ffffff);
-            opacity: 0;
-            offset-path: path("M0 28 h36 l40 40 v50");
-            animation: viajeCabeza 6s linear infinite;
-        }
-
-        .nodo-sincro {
+        /* Nodo terminal dorado individual (reducido a la mitad) */
+        .nodo {
             fill: #d4af37;
-            fill-opacity: 0.05;
+            fill-opacity: 0.1;
             transform-origin: center;
-            animation: impactoNodo 6s ease-in-out infinite;
+            animation: brillarNodo 5s ease-in-out infinite alternate; 
+            animation-delay: 0.5s;
         }
 
-        @keyframes viajeEstela {
-            0% { stroke-dashoffset: 350; stroke-opacity: 0; }
-            5% { stroke-opacity: 0.8; }
-            48% { stroke-opacity: 0.8; }
-            50%, 100% { stroke-dashoffset: 0; stroke-opacity: 0; }
+        @keyframes viajarFoton {
+            0% { opacity: 0; stroke-dashoffset: 360; filter: drop-shadow(0 0 1px #d4af37); }
+            10% { opacity: 0.75; }
+            90% { opacity: 0.75; }
+            100% { opacity: 0; stroke-dashoffset: -360; filter: drop-shadow(0 0 3px #d4af37); }
         }
 
-        @keyframes viajeCabeza {
-            0% { offset-distance: 0%; opacity: 0; scale: 0.5; }
-            5% { opacity: 1; scale: 1.2; }
-            48% { opacity: 1; scale: 1.2; }
-            50% { offset-distance: 100%; opacity: 0; scale: 0.5; }
-            100% { offset-distance: 100%; opacity: 0; }
+        /* Animación para los nuevos rayos superiores */
+        @keyframes correrRayoCircuito {
+            0% { stroke-dashoffset: 260; stroke-opacity: 0; }
+            15% { stroke-opacity: 0.9; }
+            85% { stroke-opacity: 0.9; }
+            100% { stroke-dashoffset: -260; stroke-opacity: 0; }
         }
         
-        @keyframes impactoNodo {
-            0%, 48% { fill-opacity: 0.05; r: 2.2; filter: none; }
-            50% { fill-opacity: 1; r: 3.8; filter: drop-shadow(0 0 6px #d4af37) drop-shadow(0 0 2px #fff); }
-            65% { fill-opacity: 0.4; r: 2.5; filter: drop-shadow(0 0 2px #d4af37); }
-            80%, 100% { fill-opacity: 0.05; r: 2.2; filter: none; }
+        /* Animación del nodo restante */
+        @keyframes brillarNodo {
+            0% { fill-opacity: 0.05; r: 2.2; filter: none; }
+            45% { fill-opacity: 0.85; r: 3.2; filter: drop-shadow(0 0 4px #d4af37); }
+            90%, 100% { fill-opacity: 0.1; r: 2.2; filter: none; }
         }
+        /* FIN SISTEMA DE FONDO */
 
-        /* MAQUETACIÓN GENERAL Y COMPONENTES */
         .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
         .golden { color: #d4af37; }
-        
-        header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 20px 5%; 
-            background-color: rgba(0, 0, 0, 0.85); 
-            backdrop-filter: blur(5px); 
-        }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); }
         .logo { height: 80px; width: auto; }
         .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
         #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 5px; cursor: pointer; }
-        
         section { padding: 60px 5%; text-align: center; background-color: transparent; }
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
@@ -107,7 +109,6 @@
         .solucion-item { text-align: center; }
         .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
         
-        /* RAYOS INTACTOS DE LOS BORDES EN LAS IMÁGENES */
         .img-wrapper { position: relative; width: 100%; overflow: visible; cursor: pointer; perspective: 1000px; border-radius: 8px; }
         .solucion-item img { width: 100%; display: block; border: 1px solid #333; border-radius: 8px; background: #fff; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
         
@@ -134,21 +135,17 @@
             100% { opacity: 0; transform: translate(-35%, 35%) scale(1); }
         }
 
-        .btn-download { display: inline-block; padding: 10px 20px; background-color: transparent; border: 1px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 4px; transition: 0.3s; font-size: 0.9rem; margin: 5px; }
+        .btn-download { display: inline-block; padding: 15px 25px; background-color: transparent; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; transition: 0.3s; font-weight: bold; margin: 10px; }
         .btn-download:hover { background-color: #d4af37; color: #000; }
-        
         .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
         .region-card { background: rgba(17, 17, 17, 0.75); backdrop-filter: blur(5px); padding: 25px; border: 1px solid #d4af37; border-radius: 8px; }
-        
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
         input, textarea { padding: 12px; background: rgba(17, 17, 17, 0.8); border: 1px solid #d4af37; color: white; border-radius: 4px; }
         button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; transition: 0.3s; }
         button:hover { background: #b8962d; }
-        
         footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: rgba(0, 0, 0, 0.9); }
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
         .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
-        
         @media (max-width: 768px) {
             .flex-container { flex-direction: column; text-align: center; }
             .image-side img { height: auto; }
@@ -157,20 +154,30 @@
 </head>
 <body>
 
-<!-- CONTENEDOR CON PATRÓN DE CIRCUITO DEL FONDO REDUCIDO EN UN 60% -->
+<!-- CONTENEDOR DE CIRCUITO ACTUALIZADO CON RAYOS SUPERPUESTOS -->
 <svg class="circuito-bg">
     <defs>
-        <!-- Agrandamos el área del patrón para espaciar y restar el 60% de las líneas densas -->
-        <pattern id="circuit-pattern" width="280" height="280" patternUnits="userSpaceOnUse" viewBox="0 0 200 200">
+        <pattern id="circuit-pattern" width="180" height="180" patternUnits="userSpaceOnUse" viewBox="0 0 200 200">
+            <!-- Capas Estáticas Base Doradas -->
             <g class="base-path">
-                <!-- Única línea de circuito simplificada para mantener estética sobria -->
-                <path d="M0 28 h36 l40 40 v50 l-30 30 h-46" />
+                <path d="M0 20 h40 l40 40 v50 l-30 30 h-50 M0 28 h36 l40 40 v50 l-30 30 h-46 M0 36 h32 l40 40 v50 l-30 30 h-42" />
+                <path d="M200 30 v40 l-40 40 h-30 v50 l35 35 M200 38 v36 l-40 40 h-30 v50 l35 35" />
+                <path d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40 M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
+            <!-- Flujos de fotones (Fondo original sutil) -->
             <g>
-                <path class="rayo-linea" d="M0 28 h36 l40 40 v50" />
-                <circle class="foton-cabeza" cx="0" cy="0" r="1.8" />
+                <path class="foton f1" d="M0 20 h40 l40 40 v50 l-30 30 h-50" />
+                <path class="foton f2" d="M200 30 v40 l-40 40 h-30 v50 l35 35" />
+                <path class="foton f3" d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40" />
+                <path class="foton f4" d="M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
-            <circle class="nodo-sincro" cx="76" cy="118" r="2.2" />
+            <!-- NUEVOS RAYOS: Corren exactamente por encima de las líneas del patrón original -->
+            <g>
+                <path class="rayo-linea r1" d="M0 28 h36 l40 40 v50 l-30 30 h-46" />
+                <path class="rayo-linea r2" d="M200 38 v36 l-40 40 h-30 v50 l35 35" />
+            </g>
+            <!-- Un solo nodo brillante (reducido a la mitad para balance visual) -->
+            <circle class="nodo" cx="80" cy="60" r="2.3" />
         </pattern>
     </defs>
     <rect width="100%" height="100%" fill="url(#circuit-pattern)" />
@@ -195,7 +202,7 @@
     <div class="flex-container">
         <div class="text-side">
             <h1 id="txt1" class="golden">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
-            <p id="txt2">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansion regional.</p>
+            <p id="txt2">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
             <p id="txt3">Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
             <p id="txt4">Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
         </div>
@@ -251,7 +258,6 @@
 <section>
     <h2 id="txt13" class="golden">Nuestras Soluciones</h2>
     <div class="grid">
-        <!-- Todas las tarjetas conservan sus rayos perimetrales y efectos de interactividad al click -->
         <div class="solucion-item"><h3 id="txt14">ASU</h3><div class="img-wrapper"><img src="images/asu.jpg" alt="ASU"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
         <div class="solucion-item"><h3 id="txt15">ADSS</h3><div class="img-wrapper"><img src="images/adss.jpg" alt="ADSS"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
         <div class="solucion-item"><h3 id="txt16">DROP</h3><div class="img-wrapper"><img src="images/drop.jpg" alt="Drop"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
@@ -261,11 +267,11 @@
 </section>
 
 <section>
-    <h2 id="txt19" class="golden">Fichas y Catálogos Técnicos</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-        <a id="txt20" href="doc/ASO-Fiber-Optic-Cable.pdf" download class="btn-download">Ficha Técnica ASU</a>
-        <a id="txt21" href="doc/ADSS-Cable.pdf" download class="btn-download">Ficha Técnica ADSS</a>
-        <a id="txt22" href="doc/Catalogo-Trulink.pdf" download class="btn-download">Catálogo General</a>
+    <h2 id="txt19" class="golden">Catálogos Técnicos</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a id="txt20" href="doc/cataccesorios.pdf" download class="btn-download">Catálogo Accesorios</a>
+        <a id="txt21" href="doc/catcables.pdf" download class="btn-download">Catálogo Cables</a>
+        <a id="txt22" href="doc/catherrajes.pdf" download class="btn-download">Catálogo Herrajes</a>
     </div>
 </section>
 
@@ -296,7 +302,6 @@
 </footer>
 
 <script>
-    // Script de interactividad táctil/click para los marcos perimetrales
     document.querySelectorAll('.img-wrapper').forEach(wrapper => {
         wrapper.addEventListener('click', () => {
             if (wrapper.classList.contains('animating')) return;
@@ -322,8 +327,7 @@
             txt11: "<li><strong>Unique format in the region:</strong> we are the only manufacturer offering this length, designed for medium-scale projects and agile deployments.</li><li><strong>Installation optimization:</strong> avoids cable waste and facilitates handling in tight spaces.</li><li><strong>Inventory control:</strong> practical, transportable, and allows precise traceability.</li><li><strong>Direct manufacturing in Shenzhen:</strong> under ISO standards, with strategic distribution from Panama to Central America, the Caribbean, and Colombia.</li>",
             txt12: "<em>👉 This exclusive format reinforces our vision of smart connectivity and disruptive logistics.</em>",
             txt13: "Our Solutions", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "HARDWARE", txt18: "ACCESSORIES",
-            txt19: "Technical Datasheets & Catalogs", 
-            txt20: "ASU Datasheet", txt21: "ADSS Datasheet", txt22: "General Catalog",
+            txt19: "Technical Catalogs", txt20: "Accessories Catalog", txt21: "Cables Catalog", txt22: "Hardware Catalog",
             txt23: "Contact and Investors", 
             txt24: "If you wish to contact us to request commercial information or explore investment opportunities, please complete the following form. Our team will contact you shortly.",
             txt25: "Full Name", txt26: "Email", txt27: "Phone", txt28: "Company", txt29: "Country", txt30: "Message or reason for inquiry", txt31: "Send Request", txt32: "© 2026 Trulink Fiber LLC. All rights reserved.",
@@ -336,19 +340,19 @@
         },
         ar: {
             txt1: "TRULINK FIBER LLC – هندسة الاتصال الذكي",
-            txt2: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
+            txt2: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة in حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
             txt3: "مع مقر رئيسي في الولايات المتحدة وعمليات لوجستية في بنما وأمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا، تتموضع TRULINK كمصنع وحيد يقدم الألياف الضوئية الداخلية في صناديق بطول 305 أمتار، وهو تنسيق مصمم لتحسين التركيب والنقل ومراقبة المخزون للمشاريع متوسطة الحجم.",
             txt4: "إنتاج مباشر في شنتشن، الصين، وفقاً لمعايير ISO، مع توزيع في جميع أنحاء منطقة أمريكا اللاتينية.",
             txt5: "T‑FAP™ – منصة تثبيت وصلات Trulink",
             txt6: "T‑FAP™ هو ابتكار TRULINK FIBER LLC قيد التطوير لتحويل البنية التحتية للاتصالات في أمريكا اللاتينية.",
-            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ، مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية بدون نفايات.</li>",
+            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً in البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ, مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
             txt8: "<em>👉 على الرغم من أنه لا يزال قيد التطوير، فإن T‑FAP™ يعكس رؤيتنا للبنية التحتية الأبدية والمستدامة والمكيفة مع المستقبل الرقمي للمنطقة.</em>",
             txt9: "صناديق 305 متر – ألياف بصرية داخلية",
             txt10: "في TRULINK FIBER LLC، قمنا بتطوير تنسيق حصري يستجيب للاحتياجات الحقيقية للفنيين والمشغلين: صناديق ألياف بصرية داخلية بطول 305 أمتار.",
-            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li>\n<li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li>\n<li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li>\n<li><strong>تصنيع مباشر في شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
+            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li>\n<li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li>\n<li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li>\n<li><strong>تصنيع مباشر in شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
             txt12: "<em>👉 هذا التنسيق الحصري يعزز رؤيتنا للاتصال الذكي والخدمات اللوجستية المبتكرة.</em>",
             txt13: "حلولنا", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "أجهزة ربط", txt18: "ملحقات",
-            txt19: "كتالوجات تقنية", txt20: "المواصفات الفنية ASU", txt21: "المواصفات الفنية ADSS", txt22: "الكتالوج العام",
+            txt19: "كتالوجات تقنية", txt20: "كتالوج الملحقات", txt21: "كتالوج الكابلات", txt22: "كتالوج أجهزة الربط",
             txt23: "اتصل بنا والمستثمرون", 
             txt24: "إذا كنت ترغب في الاتصال بنا لطلب معلومات تجارية أو استكشاف فرص الاستثمار، يرجى ملء النموذج التالي. سيتصل بك فريقنا في أقرب وقت.",
             txt25: "الاسم الكامل", txt26: "البريد الإلكتروني", txt27: "هاتف", txt28: "شركة", txt29: "بلد", txt30: "رسالة أو سبب الاستفسار", txt31: "إرسال الطلب", txt32: "© 2026 Trulink Fiber LLC. جميع الحقوق محفوظة.",
