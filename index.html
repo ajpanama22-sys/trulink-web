@@ -29,13 +29,45 @@
         .text-side { flex: 1; }
         .image-side { flex: 1; display: flex; justify-content: center; }
         .image-side img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border: 1px solid #d4af37; border-radius: 8px; }
+        
+        /* INTERFAZ DE SOLUCIONES CON INTERACCIÓN DE RAYOS PREMIUM */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
         .solucion-item { text-align: center; }
         .solucion-item h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.1rem; }
-        .solucion-item img { width: 100%; border: 1px solid #333; border-radius: 4px; }
+        
+        /* Envoltura controladora del espacio 3D */
+        .img-wrapper { position: relative; width: 100%; overflow: visible; cursor: pointer; perspective: 1000px; border-radius: 8px; }
+        .solucion-item img { width: 100%; display: block; border: 1px solid #333; border-radius: 8px; background: #fff; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        
+        /* Contenedor del marco SVG del rayo */
+        .rayo-svg { position: absolute; top: -2px; left: -2px; width: calc(100% + 4px); height: calc(100% + 4px); pointer-events: none; z-index: 10; }
+        .rayo-svg rect { width: 100%; height: 100%; rx: 8px; ry: 8px; fill: none; stroke: #d4af37; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 800; stroke-dashoffset: 800; opacity: 0; }
+        
+        /* Punto de destello luminoso final */
+        .destello { position: absolute; left: -2px; bottom: -2px; width: 20px; height: 20px; background: radial-gradient(circle, #fff 10%, #d4af37 60%, transparent 100%); border-radius: 50%; box-shadow: 0 0 20px 5px #d4af37; opacity: 0; pointer-events: none; z-index: 11; transform: translate(-35%, 35%) scale(0); }
+
+        /* CLASES ACTIVADAS POR TOQUE (JavaScript) */
+        .img-wrapper.animating img { animation: girar3D 0.9s ease-in-out forwards; }
+        .img-wrapper.animating .rayo-svg rect { animation: correrRayo 1.4s linear 0.9s forwards; }
+        .img-wrapper.animating .destello { animation: estallidoLuz 0.5s ease-out 2.3s forwards; }
+
+        /* LÓGICA DE ANIMACIONES */
+        @keyframes girar3D {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        @keyframes correrRayo {
+            0% { opacity: 1; stroke-dashoffset: 800; }   /* Inicia abajo a la izquierda */
+            100% { opacity: 1; stroke-dashoffset: 0; }   /* Termina el circuito completo volviendo al inicio */
+        }
+        @keyframes estallidoLuz {
+            0% { opacity: 0; transform: translate(-35%, 35%) scale(0); }
+            50% { opacity: 1; transform: translate(-35%, 35%) scale(3); filter: brightness(1.5); }
+            100% { opacity: 0; transform: translate(-35%, 35%) scale(1); }
+        }
+
         .btn-download { display: inline-block; padding: 15px 25px; background-color: transparent; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; border-radius: 5px; transition: 0.3s; font-weight: bold; margin: 10px; }
         .btn-download:hover { background-color: #d4af37; color: #000; }
-        /* Estilo para los cuadros de región */
         .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
         .region-card { background: rgba(17, 17, 17, 0.75); backdrop-filter: blur(5px); padding: 25px; border: 1px solid #d4af37; border-radius: 8px; }
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
@@ -73,7 +105,7 @@
         <div class="text-side">
             <h1 id="txt1" class="golden">TRULINK FIBER LLC – Ingeniería de Conectividad Inteligente</h1>
             <p id="txt2">TRULINK FIBER LLC es una empresa de ingeniería y manufactura especializada en soluciones de fibra óptica y componentes de infraestructura digital para telecomunicaciones, redes corporativas y proyectos de expansión regional.</p>
-            <p id="txt3">Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que ofrece fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
+            <p id="txt3">Con sede en Estados Unidos y operaciones logísticas en Panamá, Centroamérica, el Caribe y Colombia, TRULINK se posiciona como el único fabricante que offers fibra óptica para interiores en cajas de 305 metros, un formato diseñado para optimizar instalación, transporte y control de inventario en proyectos de mediana escala.</p>
             <p id="txt4">Producción directa en Shenzhen, China, bajo estándares ISO, con distribución hacia toda la región latinoamericana.</p>
         </div>
         <div class="image-side"><img src="images/cajas.jpg" alt="Cajas de producto Trulink"></div>
@@ -128,11 +160,11 @@
 <section>
     <h2 id="txt13" class="golden">Nuestras Soluciones</h2>
     <div class="grid">
-        <div class="solucion-item"><h3 id="txt14">ASU</h3><img src="images/asu.jpg" alt="ASU"></div>
-        <div class="solucion-item"><h3 id="txt15">ADSS</h3><img src="images/adss.jpg" alt="ADSS"></div>
-        <div class="solucion-item"><h3 id="txt16">DROP</h3><img src="images/drop.jpg" alt="Drop"></div>
-        <div class="solucion-item"><h3 id="txt17">HERRAJES</h3><img src="images/herraje.jpg" alt="Herrajes"></div>
-        <div class="solucion-item"><h3 id="txt18">ACCESORIOS</h3><img src="images/accesorios.jpg" alt="Accesorios"></div>
+        <div class="solucion-item"><h3 id="txt14">ASU</h3><div class="img-wrapper"><img src="images/asu.jpg" alt="ASU"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
+        <div class="solucion-item"><h3 id="txt15">ADSS</h3><div class="img-wrapper"><img src="images/adss.jpg" alt="ADSS"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
+        <div class="solucion-item"><h3 id="txt16">DROP</h3><div class="img-wrapper"><img src="images/drop.jpg" alt="Drop"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
+        <div class="solucion-item"><h3 id="txt17">HERRAJES</h3><div class="img-wrapper"><img src="images/herraje.jpg" alt="Herrajes"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
+        <div class="solucion-item"><h3 id="txt18">ACCESORIOS</h3><div class="img-wrapper"><img src="images/accesorios.jpg" alt="Accesorios"><svg class="rayo-svg"><rect/></svg><div class="destello"></div></div></div>
     </div>
 </section>
 
@@ -172,6 +204,17 @@
 </footer>
 
 <script>
+    // Inyección de interacción táctil/clic para disparar la secuencia exacta solicitada
+    document.querySelectorAll('.img-wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+            if (wrapper.classList.contains('animating')) return; // Bloquea clics duplicados en plena animación
+            wrapper.classList.add('animating');
+            setTimeout(() => {
+                wrapper.classList.remove('animating');
+            }, 2800); // 2.8 segundos limpia la clase para permitir un nuevo ciclo interactivo
+        });
+    });
+
     const translations = {
         en: {
             txt1: "TRULINK FIBER LLC – Smart Connectivity Engineering",
@@ -205,7 +248,7 @@
             txt4: "إنتاج مباشر في شنتشن، الصين، وفقاً لمعايير ISO، مع توزيع في جميع أنحاء منطقة أمريكا اللاتينية.",
             txt5: "T‑FAP™ – منصة تثبيت وصلات Trulink",
             txt6: "T‑FAP™ هو ابتكار TRULINK FIBER LLC قيد التطوير لتحويل البنية التحتية للاتصالات في أمريكا اللاتينية.",
-            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ، مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
+            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً in البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ، مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
             txt8: "<em>👉 على الرغم من أنه لا يزال قيد التطوير، فإن T‑FAP™ يعكس رؤيتنا للبنية التحتية الأبدية والمستدامة والمكيفة مع المستقبل الرقمي للمنطقة.</em>",
             txt9: "صناديق 305 متر – ألياف بصرية داخلية",
             txt10: "في TRULINK FIBER LLC، قمنا بتطوير تنسيق حصري يستجيب للاحتياجات الحقيقية للفنيين والمشغلين: صناديق ألياف بصرية داخلية بطول 305 أمتار.",
