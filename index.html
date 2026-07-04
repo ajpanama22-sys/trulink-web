@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* FONDO DE CIRCUITOS DINÁMICOS ASÍNCRONOS (Estilo La Premium) */
+        /* FONDO DE CIRCUITOS PREMIUM: SUTIL Y EXCLUSIVO */
         .circuito-bg {
             position: fixed;
             top: 0;
@@ -32,41 +32,43 @@
             stroke-linejoin: round;
             fill: none;
         }
-        /* Líneas base estáticas atenuadas */
-        .base-path { stroke-opacity: 0.12; }
+        /* Líneas base estáticas con opacidad muy baja y elegante */
+        .base-path { stroke-opacity: 0.15; }
         
-        /* Impulsos de luz viajando (Fotones) */
+        /* Impulsos de luz dorada controlados */
         .foton {
-            stroke-opacity: 0.85;
-            stroke: #fff;
-            stroke-dasharray: 20 150;
+            stroke-opacity: 0;
+            stroke: #d4af37;
+            stroke-dasharray: 40 300; /* Estela más larga y espaciada */
             animation: viajarFoton linear infinite;
         }
-        /* Variaciones de velocidad y retrasos al azar para romper la simetría */
-        .f1 { animation-duration: 4s; animation-delay: 0s; }
-        .f2 { animation-duration: 5s; animation-delay: 1.5s; animation-direction: reverse; }
-        .f3 { animation-duration: 3.5s; animation-delay: 0.7s; }
-        .f4 { animation-duration: 6s; animation-delay: 2.2s; }
+        /* Ritmo pausado y asíncrono para evitar saturación visual */
+        .f1 { animation-duration: 7s; animation-delay: 0s; }
+        .f2 { animation-duration: 9s; animation-delay: 3.5s; animation-direction: reverse; }
+        .f3 { animation-duration: 8s; animation-delay: 1.8s; }
+        .f4 { animation-duration: 11s; animation-delay: 5.2s; }
 
-        /* Nodos terminales con efecto pulso/brillo */
+        /* Nodos terminales dorados que pulsan suavemente al ritmo del flujo */
         .nodo {
             fill: #d4af37;
-            fill-opacity: 0.25;
+            fill-opacity: 0.15;
             transform-origin: center;
-            animation: brillarNodo 2s ease-in-out infinite alternate;
+            animation: brillarNodo 3s ease-in-out infinite alternate;
         }
-        .n1 { animation-delay: 0.3s; animation-duration: 1.8s; }
-        .n2 { animation-delay: 1.2s; animation-duration: 2.5s; }
-        .n3 { animation-delay: 0.7s; animation-duration: 1.5s; }
+        .n1 { animation-delay: 0.5s; animation-duration: 2.5s; }
+        .n2 { animation-delay: 2.0s; animation-duration: 3.5s; }
+        .n3 { animation-delay: 1.2s; animation-duration: 2.8s; }
 
         @keyframes viajarFoton {
-            0% { stroke-dashoffset: 200; filter: drop-shadow(0 0 2px #d4af37); }
-            100% { stroke-dashoffset: -200; filter: drop-shadow(0 0 6px #fff); }
+            0% { opacity: 0; stroke-dashoffset: 340; filter: drop-shadow(0 0 1px #d4af37); }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { opacity: 0; stroke-dashoffset: -340; filter: drop-shadow(0 0 4px #d4af37); }
         }
         @keyframes brillarNodo {
-            0% { fill-opacity: 0.2; r: 2.5; fill: #d4af37; }
-            50% { fill-opacity: 1; r: 4; fill: #fff; filter: drop-shadow(0 0 5px #d4af37); }
-            100% { fill-opacity: 0.4; r: 2.5; fill: #d4af37; }
+            0% { fill-opacity: 0.15; r: 2.5; filter: none; }
+            50% { fill-opacity: 0.9; r: 3.5; filter: drop-shadow(0 0 3px #d4af37); }
+            100% { fill-opacity: 0.25; r: 2.5; filter: none; }
         }
         /* FIN SISTEMA DE FONDO */
 
@@ -132,20 +134,24 @@
 </head>
 <body>
 
+<!-- CONTENEDOR DEL CIRCUITO PREMIUM MEJORADO -->
 <svg class="circuito-bg">
     <defs>
         <pattern id="circuit-pattern" width="180" height="180" patternUnits="userSpaceOnUse" viewBox="0 0 200 200">
+            <!-- Capas Estáticas Base Doradas -->
             <g class="base-path">
                 <path d="M0 20 h40 l40 40 v50 l-30 30 h-50 M0 28 h36 l40 40 v50 l-30 30 h-46 M0 36 h32 l40 40 v50 l-30 30 h-42" />
                 <path d="M200 30 v40 l-40 40 h-30 v50 l35 35 M200 38 v36 l-40 40 h-30 v50 l35 35" />
                 <path d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40 M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
+            <!-- Pocas líneas activas al azar con destellos dorados lentos -->
             <g>
                 <path class="foton f1" d="M0 20 h40 l40 40 v50 l-30 30 h-50" />
                 <path class="foton f2" d="M200 30 v40 l-40 40 h-30 v50 l35 35" />
                 <path class="foton f3" d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40" />
                 <path class="foton f4" d="M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
+            <!-- Nodos terminales dorados elegantes -->
             <circle class="nodo n1" cx="80" cy="60" r="2.5" />
             <circle class="nodo n2" cx="120" cy="115" r="2.5" />
             <circle class="nodo n3" cx="60" cy="135" r="2.5" />
