@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="title-tag">Trulink Fiber LLC | Ingeniería de Precisión</title>
     <style>
-        body { background-color: #000000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        body { 
+            background-color: #000000; 
+            /* INICIO DEL PATRÓN DE CIRCUITOS SUTIL (Dorado Premium) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='%23d4af37' fill-opacity='0.04' stroke='%23d4af37' stroke-opacity='0.04' stroke-width='1'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3Ccircle cx='60' cy='60' r='2'/%3E%3Ccircle cx='140' cy='20' r='2'/%3E%3Cpath d='M20 20h40v40M60 60h40v-40h40M140 20v60h-40M20 100h20v20h40M100 120h40v-20' fill='none'/%3E%3Ccircle cx='100' cy='20' r='2'/%3E%3Ccircle cx='100' cy='120' r='2'/%3E%3Ccircle cx='40' cy='120' r='2'/%3E%3Cpath d='M20 140h120v-20' fill='none'/%3E%3Ccircle cx='140' cy='140' r='2'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            /* FIN DEL PATRÓN */
+            color: #fff; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6; 
+        }
         .full-width-banner { width: 100%; display: block; line-height: 0; }
         .full-width-banner img { width: 100%; height: auto; display: block; }
         .golden { color: #d4af37; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #000000; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); }
         .logo { height: 80px; width: auto; }
         .header-address { font-size: 0.9rem; color: #ccc; text-align: center; max-width: 400px; }
         #lang-selector { background: #111; color: #d4af37; border: 1px solid #d4af37; padding: 5px; cursor: pointer; }
-        section { padding: 60px 5%; text-align: center; background-color: #000000; }
+        section { padding: 60px 5%; text-align: center; background-color: transparent; }
         .flex-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 40px auto; text-align: left; }
         .text-side { flex: 1; }
         .image-side { flex: 1; display: flex; justify-content: center; }
@@ -26,12 +37,12 @@
         .btn-download:hover { background-color: #d4af37; color: #000; }
         /* Estilo para los cuadros de región */
         .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
-        .region-card { background: #111; padding: 25px; border: 1px solid #d4af37; border-radius: 8px; }
+        .region-card { background: rgba(17, 17, 17, 0.75); backdrop-filter: blur(5px); padding: 25px; border: 1px solid #d4af37; border-radius: 8px; }
         form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
-        input, textarea { padding: 12px; background: #111; border: 1px solid #d4af37; color: white; border-radius: 4px; }
+        input, textarea { padding: 12px; background: rgba(17, 17, 17, 0.8); border: 1px solid #d4af37; color: white; border-radius: 4px; }
         button { padding: 12px; background: #d4af37; border: none; cursor: pointer; font-weight: bold; border-radius: 4px; color: #000; transition: 0.3s; }
         button:hover { background: #b8962d; }
-        footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: #000000; }
+        footer { padding: 40px; border-top: 1px solid #d4af37; text-align: center; background-color: rgba(0, 0, 0, 0.9); }
         .social-icons { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
         .social-icons a img { width: 50px; height: 50px; object-fit: contain; }
         @media (max-width: 768px) {
@@ -104,7 +115,7 @@
 </section>
 
 <!-- Sección Regional Traducible -->
-<section style="background-color: #0a0a0a; border-top: 1px solid #d4af37; border-bottom: 1px solid #d4af37;">
+<section style="background-color: rgba(10, 10, 10, 0.5); border-top: 1px solid #d4af37; border-bottom: 1px solid #d4af37; backdrop-filter: blur(5px);">
     <h2 id="txt33" class="golden">Presencia Regional Estratégica</h2>
     <p id="txt34" style="color: #ccc; margin-bottom: 30px;">TRULINK FIBER LLC cuenta con un robusto hub logístico y operativo para toda la región.</p>
     <div class="region-grid">
@@ -190,16 +201,16 @@
         },
         ar: {
             txt1: "TRULINK FIBER LLC – هندسة الاتصال الذكي",
-            txt2: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة في حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
+            txt2: "TRULINK FIBER LLC هي شركة هندسة وتصنيع متخصصة in حلول الألياف الضوئية ومكونات البنية التحتية الرقمية للاتصالات والشبكات المؤسسية ومشاريع التوسع الإقليمي.",
             txt3: "مع مقر رئيسي في الولايات المتحدة وعمليات لوجستية في بنما وأمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا، تتموضع TRULINK كمصنع وحيد يقدم الألياف الضوئية الداخلية في صناديق بطول 305 أمتار، وهو تنسيق مصمم لتحسين التركيب والنقل ومراقبة المخزون للمشاريع متوسطة الحجم.",
             txt4: "إنتاج مباشر في شنتشن، الصين، وفقاً لمعايير ISO، مع توزيع في جميع أنحاء منطقة أمريكا اللاتينية.",
             txt5: "T‑FAP™ – منصة تثبيت وصلات Trulink",
             txt6: "T‑FAP™ هو ابتكار TRULINK FIBER LLC قيد التطوير لتحويل البنية التحتية للاتصالات في أمريكا اللاتينية.",
-            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li><li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li><li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li><li><strong>الاستدامة:</strong> تحل محل الفولاذ، مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
+            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً في البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ، مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
             txt8: "<em>👉 على الرغم من أنه لا يزال قيد التطوير، فإن T‑FAP™ يعكس رؤيتنا للبنية التحتية الأبدية والمستدامة والمكيفة مع المستقبل الرقمي للمنطقة.</em>",
             txt9: "صناديق 305 متر – ألياف بصرية داخلية",
             txt10: "في TRULINK FIBER LLC، قمنا بتطوير تنسيق حصري يستجيب للاحتياجات الحقيقية للفنيين والمشغلين: صناديق ألياف بصرية داخلية بطول 305 أمتار.",
-            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li><li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li><li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li><li><strong>تصنيع مباشر في شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
+            txt11: "<li><strong>تنسيق فريد في المنطقة:</strong> نحن المصنع الوحيد الذي يقدم هذا الطول، المصمم للمشاريع متوسطة الحجم والنشر السريع.</li>\n<li><strong>تحسين التركيب:</strong> يتجنب هدر الكابلات ويسهل التعامل في المساحات الضيقة.</li>\n<li><strong>مراقبة المخزون:</strong> عملية، قابلة للنقل، وتسمح بتتبع دقيق.</li>\n<li><strong>تصنيع مباشر في شنتشن:</strong> وفقاً لمعايير ISO، مع توزيع استراتيجي من بنما إلى أمريكا الوسطى ومنطقة البحر الكاريبي وكولومبيا.</li>",
             txt12: "<em>👉 هذا التنسيق الحصري يعزز رؤيتنا للاتصال الذكي والخدمات اللوجستية المبتكرة.</em>",
             txt13: "حلولنا", txt14: "ASU", txt15: "ADSS", txt16: "DROP", txt17: "أجهزة ربط", txt18: "ملحقات",
             txt19: "كتالوجات تقنية", txt20: "كتالوج الملحقات", txt21: "كتالوج الكابلات", txt22: "كتالوج أجهزة الربط",
