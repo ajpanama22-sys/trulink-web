@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* FONDO DE CIRCUITOS PREMIUM: ASÍNCRONO Y ULTRA SUTIL */
+        /* FONDO DE CIRCUITOS PREMIUM: RAYOS DINÁMICOS SOBRE LAS LÍNEAS */
         .circuito-bg {
             position: fixed;
             top: 0;
@@ -32,10 +32,10 @@
             stroke-linejoin: round;
             fill: none;
         }
-        /* Líneas base estáticas con opacidad muy baja y elegante */
+        /* Líneas base estáticas muy sutiles */
         .base-path { stroke-opacity: 0.14; }
         
-        /* Impulsos de luz dorada controlados */
+        /* Flujos de fotones (impulsos largos originales) */
         .foton {
             stroke-opacity: 0;
             stroke: #d4af37;
@@ -47,16 +47,27 @@
         .f3 { animation-duration: 9s; animation-delay: 2s; }
         .f4 { animation-duration: 12s; animation-delay: 6s; }
 
-        /* Nodos terminales dorados con patrones de brillo totalmente independientes */
+        /* NUEVO: Rayos dorados intensos que cruzan exactamente encima de las líneas del patrón */
+        .rayo-linea {
+            stroke: #d4af37;
+            stroke-width: 1.6; /* Ligeramente más grueso para resaltar */
+            stroke-opacity: 0;
+            stroke-dasharray: 60 200; /* Un rayo más definido y corto */
+            filter: drop-shadow(0 0 4px #d4af37);
+            animation: correrRayoCircuito linear infinite;
+        }
+        /* Tiempos y retrasos totalmente asíncronos para los rayos */
+        .r1 { animation-duration: 5s; animation-delay: 1s; }
+        .r2 { animation-duration: 7s; animation-delay: 3.5s; animation-direction: reverse; }
+
+        /* Nodo terminal dorado individual (reducido a la mitad) */
         .nodo {
             fill: #d4af37;
             fill-opacity: 0.1;
             transform-origin: center;
+            animation: brillarNodo 5s ease-in-out infinite alternate; 
+            animation-delay: 0.5s;
         }
-        
-        /* Cada nodo tiene su propia animación con velocidad y retrasos únicos para romper el unísono */
-        .n1 { animation: brillarNodo1 5s ease-in-out infinite alternate; animation-delay: 0.5s; }
-        .n2 { animation: brillarNodo2 6s ease-in-out infinite alternate; animation-delay: 3.2s; }
 
         @keyframes viajarFoton {
             0% { opacity: 0; stroke-dashoffset: 360; filter: drop-shadow(0 0 1px #d4af37); }
@@ -64,19 +75,20 @@
             90% { opacity: 0.75; }
             100% { opacity: 0; stroke-dashoffset: -360; filter: drop-shadow(0 0 3px #d4af37); }
         }
+
+        /* Animación para los nuevos rayos superiores */
+        @keyframes correrRayoCircuito {
+            0% { stroke-dashoffset: 260; stroke-opacity: 0; }
+            15% { stroke-opacity: 0.9; }
+            85% { stroke-opacity: 0.9; }
+            100% { stroke-dashoffset: -260; stroke-opacity: 0; }
+        }
         
-        /* Animación independiente para el primer grupo de nodos */
-        @keyframes brillarNodo1 {
+        /* Animación del nodo restante */
+        @keyframes brillarNodo {
             0% { fill-opacity: 0.05; r: 2.2; filter: none; }
             45% { fill-opacity: 0.85; r: 3.2; filter: drop-shadow(0 0 4px #d4af37); }
             90%, 100% { fill-opacity: 0.1; r: 2.2; filter: none; }
-        }
-        
-        /* Animación independiente para el segundo grupo de nodos */
-        @keyframes brillarNodo2 {
-            0%, 30% { fill-opacity: 0.08; r: 2.2; filter: none; }
-            75% { fill-opacity: 0.75; r: 3.0; filter: drop-shadow(0 0 3px #d4af37); }
-            100% { fill-opacity: 0.15; r: 2.2; filter: none; }
         }
         /* FIN SISTEMA DE FONDO */
 
@@ -142,7 +154,7 @@
 </head>
 <body>
 
-<!-- CONTENEDOR DE CIRCUITO CON DESTELLOS TOTALMENTE ASÍNCRONOS -->
+<!-- CONTENEDOR DE CIRCUITO ACTUALIZADO CON RAYOS SUPERPUESTOS -->
 <svg class="circuito-bg">
     <defs>
         <pattern id="circuit-pattern" width="180" height="180" patternUnits="userSpaceOnUse" viewBox="0 0 200 200">
@@ -152,16 +164,20 @@
                 <path d="M200 30 v40 l-40 40 h-30 v50 l35 35 M200 38 v36 l-40 40 h-30 v50 l35 35" />
                 <path d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40 M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
-            <!-- Flujos de fotones altamente controlados -->
+            <!-- Flujos de fotones (Fondo original sutil) -->
             <g>
                 <path class="foton f1" d="M0 20 h40 l40 40 v50 l-30 30 h-50" />
                 <path class="foton f2" d="M200 30 v40 l-40 40 h-30 v50 l35 35" />
                 <path class="foton f3" d="M100 0 v20 l-25 25 h-15 v40 l20 20 h40 v40" />
                 <path class="foton f4" d="M40 200 v-30 l30 -30 v-40 l-15 -15 h-55" />
             </g>
-            <!-- Nodos con clases de animación diferenciadas (n1 y n2) para evitar sincronía -->
-            <circle class="nodo n1" cx="80" cy="60" r="2.3" />
-            <circle class="nodo n2" cx="120" cy="115" r="2.3" />
+            <!-- NUEVOS RAYOS: Corren exactamente por encima de las líneas del patrón original -->
+            <g>
+                <path class="rayo-linea r1" d="M0 28 h36 l40 40 v50 l-30 30 h-46" />
+                <path class="rayo-linea r2" d="M200 38 v36 l-40 40 h-30 v50 l35 35" />
+            </g>
+            <!-- Un solo nodo brillante (reducido a la mitad para balance visual) -->
+            <circle class="nodo" cx="80" cy="60" r="2.3" />
         </pattern>
     </defs>
     <rect width="100%" height="100%" fill="url(#circuit-pattern)" />
@@ -329,7 +345,7 @@
             txt4: "إنتاج مباشر في شنتشن، الصين، وفقاً لمعايير ISO، مع توزيع في جميع أنحاء منطقة أمريكا اللاتينية.",
             txt5: "T‑FAP™ – منصة تثبيت وصلات Trulink",
             txt6: "T‑FAP™ هو ابتكار TRULINK FIBER LLC قيد التطوير لتحويل البنية التحتية للاتصالات في أمريكا اللاتينية.",
-            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً in البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ، مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
+            txt7: "<li><strong>قاعدة أبدية، أجهزة معيارية:</strong> مصممة للبقاء ثابتة على العمود والسماح للشبكة بالنمو دون توليد نفايات مواد.</li>\n<li><strong>مقاومة استوائية:</strong> مصنوعة من بوليمرات متقدمة معززة بالألياف الزجاجية ومضافات الأشعة فوق البنفسجية، مما يضمن عمر خدمة يزيد عن 20 عاماً in البيئات القاسية.</li>\n<li><strong>تركيب ذكي:</strong> يتضمن نظام قفل تلقائي وأمان ميكانيكي مزدوج يقلل من الأعطال وأوقات التجميع.</li>\n<li><strong>الاستدامة:</strong> تحل محل الفولاذ, مما يقضي على التآكل الجلفاني ويوفر كفاءة تشغيلية مع صفر نفايات.</li>",
             txt8: "<em>👉 على الرغم من أنه لا يزال قيد التطوير، فإن T‑FAP™ يعكس رؤيتنا للبنية التحتية الأبدية والمستدامة والمكيفة مع المستقبل الرقمي للمنطقة.</em>",
             txt9: "صناديق 305 متر – ألياف بصرية داخلية",
             txt10: "في TRULINK FIBER LLC، قمنا بتطوير تنسيق حصري يستجيب للاحتياجات الحقيقية للفنيين والمشغلين: صناديق ألياف بصرية داخلية بطول 305 أمتار.",
