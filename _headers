@@ -5,5 +5,5 @@
 # Vercel procesa esto antes de servir cualquier archivo
 # Si el país es NI, forzamos un error 403
 /:path*
-  X-Vercel-IP-Country: NI
+  X-Vercel-IP-Country: PA
   Content-Security-Policy: default-src 'self'
