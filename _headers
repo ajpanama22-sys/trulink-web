@@ -1,0 +1,9 @@
+/*
+  X-Country-Block: true
+
+# Esta es la regla de bloqueo para Nicaragua (NI)
+# Vercel procesa esto antes de servir cualquier archivo
+# Si el país es NI, forzamos un error 403
+/:path*
+  X-Vercel-IP-Country: NI
+  Content-Security-Policy: default-src 'self'
