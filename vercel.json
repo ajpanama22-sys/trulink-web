@@ -1,15 +1,4 @@
 {
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "x-country-block",
-          "value": "true"
-        }
-      ]
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -20,7 +9,7 @@
           "value": "NI"
         }
       ],
-      "destination": "/403.html"
+      "destination": "/404.html"
     }
   ]
 }
